@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DialX Impact Builders Grant — $1,000+</title>
+<meta name="description" content="The DialX Impact Builders Grant supports founders, business owners, and creators turning ideas into real-world impact. One builder receives $1,000.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<script async src="https://tally.so/widgets/embed.js"></script>
+<style>
+/* ═══════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════ */
+:root {
+  --navy:       #040781;
+  --navy-deep:  #020550;
+  --navy-mid:   #0a0faa;
+  --orange:     #FE6D13;
+  --orange-hi:  #ff8c42;
+  --black:      #000000;
+  --white:      #ffffff;
+  --cream:      #f6f5f1;
+  --cream-dark: #eeede8;
+  --ink:        #111111;
+  --muted:      #777;
+  --line:       rgba(0,0,0,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════
+   UTILITY
+═══════════════════════════════ */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
+@media(max-width:768px){ .container { padding: 0 24px; } }
+
+.u-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+.u-tag::before {
+  content: ''; display: block;
+  width: 22px; height: 2px; background: currentColor; flex-shrink: 0;
+}
+.u-orange { color: var(--orange); }
+.u-white  { color: rgba(255,255,255,.55); }
+
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.up { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay:.1s; }
+.reveal-d2 { transition-delay:.2s; }
+.reveal-d3 { transition-delay:.3s; }
+
+/* ═══════════════════════════════
+   BUTTONS
+═══════════════════════════════ */
+.btn-primary {
+  display: inline-block; padding: 16px 44px;
+  background: var(--orange); color: var(--white);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: var(--orange-hi); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(254,109,19,.3);
+}
+.btn-outline-white {
+  display: inline-block; padding: 14px 40px;
+  border: 2px solid rgba(255,255,255,.4); color: var(--white);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s, border-color .2s;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.7); }
+.btn-outline-dark {
+  display: inline-block; padding: 14px 40px;
+  border: 2px solid var(--navy); color: var(--navy);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s, color .2s;
+}
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+
+/* ═══════════════════════════════
+   NAVIGATION
+═══════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  padding: 0 48px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .35s, box-shadow .35s;
+}
+#nav.solid {
+  background: rgba(4,7,129,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.07);
+}
+.nav-logo { font-weight: 900; font-size: 20px; letter-spacing: -.5px; color: var(--white); }
+.nav-logo span { color: var(--orange); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-back {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,.5);
+  transition: color .2s;
+}
+.nav-back:hover { color: var(--white); }
+.nav-cta {
+  display: inline-block; padding: 10px 26px;
+  background: var(--orange); color: var(--white);
+  font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--orange-hi); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: .3s; }
+.nav-mobile {
+  display: none; position: fixed; inset: 0; z-index: 998;
+  background: var(--navy-deep); padding: 100px 32px 40px;
+  flex-direction: column; gap: 32px;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a { font-size: 22px; font-weight: 800; color: var(--white); }
+.nav-mobile a span { color: var(--orange); }
+@media(max-width:768px){
+  #nav { padding: 0 24px; }
+  .nav-back, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+}
+
+/* ═══════════════════════════════
+   HERO
+═══════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  position: relative; display: flex; align-items: center;
+  overflow: hidden; padding: 140px 0 100px;
+}
+.hero-mesh {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 20%, rgba(254,109,19,.15) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(10,15,170,.5) 0%, transparent 70%);
+}
+.hero-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    -48deg, transparent, transparent 88px,
+    rgba(255,255,255,.04) 88px, rgba(255,255,255,.04) 89px
+  );
+}
+.hero-inner { position: relative; z-index: 2; }
+
+.grant-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(254,109,19,.15); border: 1px solid rgba(254,109,19,.3);
+  border-radius: 2px; padding: 8px 18px; margin-bottom: 36px;
+  opacity: 0; animation: fadeUp .7s .1s forwards;
+}
+.grant-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--orange); animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(254,109,19,.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(254,109,19,.08); }
+}
+.grant-badge span { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); }
+
+.hero-amount {
+  font-size: clamp(72px, 14vw, 180px);
+  font-weight: 900; line-height: 1; letter-spacing: -5px;
+  color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,.12);
+  position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+  pointer-events: none; user-select: none;
+}
+
+.hero-h1 {
+  font-weight: 900;
+  font-size: clamp(42px, 6vw, 86px);
+  line-height: 1.0; letter-spacing: -2.5px;
+  color: var(--white); max-width: 800px;
+  opacity: 0; animation: fadeUp .8s .2s forwards;
+}
+.hero-h1 em {
+  display: block; font-family: 'DM Serif Display', serif;
+  font-style: italic; font-weight: 400; color: var(--orange);
+  font-size: clamp(38px, 5.5vw, 76px); letter-spacing: -2px;
+}
+.hero-sub {
+  margin-top: 24px; max-width: 540px;
+  font-size: clamp(15px, 1.6vw, 18px); font-weight: 500;
+  color: rgba(255,255,255,.65); line-height: 1.7;
+  opacity: 0; animation: fadeUp .8s .35s forwards;
+}
+.hero-actions {
+  margin-top: 44px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .8s .5s forwards;
+}
+.hero-note {
+  margin-top: 32px; display: flex; align-items: center; gap: 12px;
+  opacity: 0; animation: fadeUp .8s .65s forwards;
+}
+.hero-note-line { width: 24px; height: 1px; background: rgba(255,255,255,.2); }
+.hero-note span { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.4); letter-spacing: .5px; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════
+   ABOUT THE GRANT
+═══════════════════════════════ */
+#about {
+  background: var(--cream);
+  padding: 120px 0;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 80px; align-items: start;
+}
+.about-sticky { position: sticky; top: 100px; }
+.about-label { font-size: clamp(80px, 10vw, 130px); font-weight: 900; line-height: .85; letter-spacing: -6px; color: var(--cream-dark); margin-bottom: 20px; }
+.about-heading {
+  font-weight: 900; font-size: clamp(32px, 3.5vw, 48px);
+  letter-spacing: -1.5px; color: var(--navy); line-height: 1.05;
+}
+.about-heading em { font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+.about-body { font-size: 17px; line-height: 1.8; color: #444; margin-bottom: 20px; font-weight: 400; }
+.about-body strong { color: var(--ink); font-weight: 700; }
+
+.grant-highlight {
+  margin-top: 40px; padding: 32px 36px;
+  background: var(--navy); border-radius: 2px;
+}
+.grant-highlight-amount {
+  font-size: clamp(40px, 5vw, 60px); font-weight: 900;
+  color: var(--orange); letter-spacing: -2px; line-height: 1;
+  margin-bottom: 8px;
+}
+.grant-highlight-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,.5);
+  margin-bottom: 20px;
+}
+.grant-highlight-note {
+  font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.6; font-weight: 400;
+}
+
+.supports-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; background: var(--cream-dark); margin-top: 4px;
+}
+.supports-item {
+  background: var(--cream); padding: 20px 24px;
+  font-size: 14px; font-weight: 700; color: var(--navy);
+  display: flex; align-items: center; gap: 10px;
+  transition: background .2s, color .2s;
+}
+.supports-item:hover { background: var(--white); color: var(--orange); }
+.supports-item::before {
+  content: '→'; color: var(--orange); font-size: 13px; font-weight: 900; flex-shrink: 0;
+}
+
+/* ═══════════════════════════════
+   WHO CAN APPLY
+═══════════════════════════════ */
+#who {
+  background: var(--navy);
+  padding: 120px 0; position: relative; overflow: hidden;
+}
+#who::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 50% 60% at 100% 0%, rgba(254,109,19,.1) 0%, transparent 60%);
+}
+.who-inner { position: relative; z-index: 1; }
+.who-top {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: end; margin-bottom: 60px;
+}
+.who-heading {
+  font-weight: 900; font-size: clamp(36px, 4.5vw, 60px);
+  letter-spacing: -2px; line-height: 1; color: var(--white);
+}
+.who-heading em { font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+.who-lead { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.75; }
+.who-lead strong { color: rgba(255,255,255,.85); font-weight: 600; }
+
+.requirements {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: rgba(255,255,255,.06);
+}
+.requirement {
+  background: var(--navy); padding: 36px 32px;
+  transition: background .25s;
+}
+.requirement:hover { background: rgba(4,7,129,.8); }
+.req-num { font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--orange); text-transform: uppercase; margin-bottom: 16px; }
+.req-text { font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.45; letter-spacing: -.2px; }
+
+/* ═══════════════════════════════
+   CRITERIA + FUNDING
+═══════════════════════════════ */
+#criteria {
+  background: var(--cream);
+  padding: 120px 0;
+}
+.criteria-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.criteria-block {}
+.criteria-heading {
+  font-weight: 900; font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -1px; color: var(--navy); line-height: 1.1;
+  margin-top: 16px; margin-bottom: 36px;
+}
+.criteria-list { list-style: none; display: flex; flex-direction: column; }
+.criteria-list li {
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.45;
+}
+.criteria-list li::before {
+  content: '✕'; color: var(--orange); font-size: 11px; font-weight: 900;
+  flex-shrink: 0; margin-top: 3px;
+}
+
+/* ═══════════════════════════════
+   WHY THIS EXISTS
+═══════════════════════════════ */
+#why {
+  background: var(--black);
+  padding: 120px 0; position: relative; overflow: hidden;
+}
+#why::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(4,7,129,.6) 0%, transparent 70%);
+}
+.why-inner { position: relative; z-index: 1; text-align: center; max-width: 760px; margin: 0 auto; }
+.why-quote {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: clamp(28px, 4vw, 52px); color: var(--white);
+  line-height: 1.3; letter-spacing: -.5px; margin-bottom: 28px;
+}
+.why-quote strong { color: var(--orange); font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900; }
+.why-body { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.8; max-width: 580px; margin: 0 auto; }
+.why-body strong { color: rgba(255,255,255,.8); font-weight: 600; }
+
+/* ═══════════════════════════════
+   FINAL CTA
+═══════════════════════════════ */
+#final-cta {
+  background: var(--navy);
+  padding: 120px 0; position: relative; overflow: hidden;
+}
+#final-cta::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(254,109,19,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 100% 0%, rgba(255,255,255,.03) 0%, transparent 60%);
+}
+.cta-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    -48deg, transparent, transparent 88px,
+    rgba(255,255,255,.025) 88px, rgba(255,255,255,.025) 89px
+  );
+}
+.final-cta-inner { position: relative; z-index: 1; text-align: center; max-width: 680px; margin: 0 auto; }
+.final-cta-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; }
+.final-cta-heading {
+  font-weight: 900; font-size: clamp(38px, 5.5vw, 70px);
+  letter-spacing: -2px; line-height: .95; color: var(--white); margin-bottom: 12px;
+}
+.final-cta-sub {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: clamp(18px, 2.5vw, 26px); color: rgba(255,255,255,.6);
+  margin-bottom: 20px;
+}
+.final-cta-body { font-size: 15px; color: rgba(255,255,255,.45); line-height: 1.75; margin-bottom: 44px; }
+.final-cta-body strong { color: rgba(255,255,255,.75); font-weight: 600; }
+.final-cta-buttons { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.final-cta-note { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,.28); font-weight: 600; letter-spacing: .5px; }
+
+/* ═══════════════════════════════
+   APPLICATION FORM
+═══════════════════════════════ */
+#apply {
+  background: var(--cream);
+  padding: 120px 0;
+}
+.apply-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+.apply-heading {
+  font-weight: 900; font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: -1.5px; line-height: 1; color: var(--navy); margin-top: 16px; margin-bottom: 16px;
+}
+.apply-heading em { font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+.apply-sub { font-size: 15px; color: var(--muted); line-height: 1.7; }
+.apply-sub strong { color: var(--ink); font-weight: 700; }
+
+.tally-wrap {
+  max-width: 860px; margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 8px;
+}
+.tally-wrap iframe {
+  width: 100%; border: none; display: block;
+  min-height: 700px;
+}
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer {
+  background: var(--navy-deep);
+  padding: 48px 0;
+}
+.footer-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-weight: 900; font-size: 22px; letter-spacing: -.5px; color: var(--white); }
+.footer-logo span { color: var(--orange); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,.25); font-weight: 500; }
+.footer-link { font-size: 12px; color: rgba(255,255,255,.35); font-weight: 600; transition: color .2s; }
+.footer-link:hover { color: var(--white); }
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media(max-width:900px){
+  .about-grid, .who-top, .criteria-grid { grid-template-columns: 1fr; gap: 48px; }
+  .requirements { grid-template-columns: 1fr; }
+  .about-sticky { position: static; }
+  .supports-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:600px){
+  .footer-bar { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ░░ NAV ░░ -->
+<nav id="nav">
+  <a href="../" class="nav-logo">DIAL<span>X</span></a>
+  <div class="nav-right">
+    <a href="../" class="nav-back">← Main Site</a>
+    <a href="https://amos.selar.com/dialx" target="_blank" class="nav-cta">Get Tickets</a>
+  </div>
+  <div class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+  <a href="../">← Main Site</a>
+  <a href="https://amos.selar.com/dialx" target="_blank" style="color:var(--orange)">Get Tickets</a>
+  <a href="#apply" class="mob-apply">Apply for Funding</a>
+</div>
+
+<!-- ░░ HERO ░░ -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-amount">$1K</div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="grant-badge">
+        <span class="dot"></span>
+        <span>DialX Impact Builders Grant · 2026</span>
+      </div>
+
+      <h1 class="hero-h1">
+        $1,000+ for people
+        <em>building real things.</em>
+      </h1>
+
+      <p class="hero-sub">
+        One standout builder receives a $1,000 cash grant. Additional selected applicants may receive funding tokens or support resources to keep building.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
+        <a href="#apply" class="btn-outline-white">Apply for Funding</a>
+      </div>
+
+      <div class="hero-note">
+        <div class="hero-note-line"></div>
+        <span>Exclusively for DialX Impact 2026 attendees</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ ABOUT THE GRANT ░░ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-sticky">
+        <div class="about-label reveal">01</div>
+        <div class="u-tag u-orange reveal reveal-d1">About the Grant</div>
+        <h2 class="about-heading reveal reveal-d2">
+          Built to fund<br><em>real builders.</em>
+        </h2>
+      </div>
+      <div>
+        <p class="about-body reveal">
+          The DialX Impact Builders Grant supports <strong>founders, business owners, creators, and individuals</strong> turning ideas into real-world impact.
+        </p>
+        <p class="about-body reveal reveal-d1">
+          We are focused on people who are <strong>already taking action</strong> — solving problems, building businesses, and creating something that matters in real life.
+        </p>
+
+        <div class="grant-highlight reveal reveal-d2">
+          <div class="grant-highlight-amount">$1,000+</div>
+          <div class="grant-highlight-label">Total Grant Value</div>
+          <div class="grant-highlight-note">One standout builder receives the $1,000 cash grant. Additional selected applicants may also receive funding tokens or support resources to continue building.</div>
+        </div>
+
+        <div style="margin-top:40px;" class="reveal reveal-d3">
+          <div class="u-tag u-orange" style="margin-bottom:20px;">This grant supports</div>
+          <div class="supports-grid">
+            <div class="supports-item">Founders & Startups</div>
+            <div class="supports-item">Business Owners</div>
+            <div class="supports-item">Creators</div>
+            <div class="supports-item">Small Businesses</div>
+            <div class="supports-item">Side Hustles</div>
+            <div class="supports-item">Community Projects</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WHO CAN APPLY ░░ -->
+<section id="who">
+  <div class="container">
+    <div class="who-inner">
+      <div class="who-top">
+        <div>
+          <div class="u-tag u-white reveal">Who Can Apply</div>
+          <h2 class="who-heading reveal reveal-d1">
+            For people<br>in <em>the work.</em>
+          </h2>
+        </div>
+        <div>
+          <p class="who-lead reveal">
+            <strong>We are not looking for perfect ideas.</strong> We are looking for people already building — with evidence of real progress and execution.
+          </p>
+        </div>
+      </div>
+      <div class="requirements">
+        <div class="requirement reveal">
+          <div class="req-num">01</div>
+          <div class="req-text">Have a valid DialX Impact 2026 ticket</div>
+        </div>
+        <div class="requirement reveal reveal-d1">
+          <div class="req-num">02</div>
+          <div class="req-text">Be actively building a business, project, idea, or initiative</div>
+        </div>
+        <div class="requirement reveal reveal-d2">
+          <div class="req-num">03</div>
+          <div class="req-text">Show real progress and execution beyond just an idea</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CRITERIA + FUNDED ░░ -->
+<section id="criteria">
+  <div class="container">
+    <div style="margin-bottom:72px;">
+      <div class="u-tag u-orange reveal">Evaluation</div>
+      <h2 class="about-heading reveal reveal-d1" style="margin-top:16px;">What we look for<br>& what gets funded.</h2>
+    </div>
+    <div class="criteria-grid">
+      <div class="criteria-block reveal">
+        <div class="u-tag u-orange">What We Look For</div>
+        <h3 class="criteria-heading">How we<br>assess applications</h3>
+        <ul class="criteria-list">
+          <li>Evidence of execution and real progress</li>
+          <li>Clarity of what you are building</li>
+          <li>Real-world relevance of the problem being solved</li>
+          <li>Practical and specific use of funding</li>
+          <li>Potential for meaningful impact or growth</li>
+        </ul>
+      </div>
+      <div class="criteria-block reveal reveal-d1">
+        <div class="u-tag u-orange">What Can Be Funded</div>
+        <h3 class="criteria-heading">The grant<br>may support</h3>
+        <ul class="criteria-list">
+          <li>Small businesses and startups</li>
+          <li>Product or service development</li>
+          <li>Marketing and customer growth</li>
+          <li>Tools, equipment, or operations</li>
+          <li>Creative or community projects</li>
+          <li>Any work that moves your idea forward</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WHY THIS EXISTS ░░ -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="u-tag u-white reveal" style="margin-bottom:32px; justify-content:center;">Why This Exists</div>
+      <p class="why-quote reveal reveal-d1">
+        Ideas matter.<br><strong>Execution creates impact.</strong>
+      </p>
+      <p class="why-body reveal reveal-d2">
+        DialX Impact is built on one belief: the gap across Africa is not ideas — it is execution. This grant exists to support people who are <strong>already doing the work</strong>, whether they are running businesses, building startups, or creating something from the ground up.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FINAL CTA ░░ -->
+<section id="final-cta">
+  <div class="cta-lines"></div>
+  <div class="container">
+    <div class="final-cta-inner">
+      <p class="final-cta-eyebrow reveal">Ready to Apply?</p>
+      <h2 class="final-cta-heading reveal reveal-d1">Get in<br>the room.</h2>
+      <p class="final-cta-sub reveal reveal-d2">Applications are open exclusively to attendees.</p>
+      <p class="final-cta-body reveal reveal-d2">
+        Get your ticket to DialX Impact 2026, join the room, and apply for funding. <strong>The grant goes to people already building.</strong>
+      </p>
+      <div class="final-cta-buttons reveal reveal-d3">
+        <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
+        <a href="#apply" class="btn-outline-white">Apply for Funding</a>
+      </div>
+      <p class="final-cta-note reveal">DialX Impact · July 25th, 2026 · Redemption City, Nigeria</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ APPLICATION FORM ░░ -->
+<section id="apply">
+  <div class="container">
+    <div class="apply-header">
+      <div class="u-tag u-orange reveal" style="justify-content:center;">Apply Now</div>
+      <h2 class="apply-heading reveal reveal-d1">
+        DialX Impact<br><em>Builders Grant</em>
+      </h2>
+      <p class="apply-sub reveal reveal-d2">
+        Only available to <strong>DialX Impact 2026 attendees.</strong><br>
+        Get your ticket first, then complete the form below.
+      </p>
+    </div>
+    <div class="tally-wrap reveal">
+      <iframe
+        data-tally-src="https://tally.so/r/kdvoJM?transparentBackground=1&formEventsForwarding=1"
+        loading="lazy"
+        width="100%"
+        height="700"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="DialX Impact Builders Grant ($1,000)">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="container">
+    <div class="footer-bar">
+      <a href="../" class="footer-logo">DIAL<span>X</span></a>
+      <p class="footer-copy">© 2026 DialX. All rights reserved.</p>
+      <a href="../" class="footer-link">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 60);
+}, { passive: true });
+
+/* Mobile nav */
+const burger = document.getElementById('burger');
+const mobileNav = document.getElementById('mobileNav');
+burger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* Scroll reveal */
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('up'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => ro.observe(el));
+
+/* Smooth anchor scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
