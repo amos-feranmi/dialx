@@ -626,7 +626,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; gap: 12px; align-items: center;
 }
 .team-values li::before {
-  content: '✕'; color: var(--orange); font-size: 12px;
+  content: '✓'; color: var(--orange); font-size: 12px;
   font-weight: 900; flex-shrink: 0;
 }
 
