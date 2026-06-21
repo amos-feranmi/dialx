@@ -235,6 +235,36 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-detail strong { color: rgba(255,255,255,.85); }
 
+/* Countdown */
+.hero-countdown {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 40px;
+  opacity: 0; animation: heroIn .8s .6s forwards;
+}
+.countdown-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  min-width: 64px;
+}
+.countdown-num {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900; letter-spacing: -2px; line-height: 1;
+  color: var(--white); font-variant-numeric: tabular-nums;
+}
+.countdown-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--orange);
+}
+.countdown-sep {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+  color: rgba(255,255,255,.25); line-height: 1;
+  margin-bottom: 18px;
+}
+@media(max-width:480px){
+  .countdown-num { font-size: 32px; }
+  .countdown-item { min-width: 52px; }
+  .countdown-sep { font-size: 24px; }
+}
+
 .hero-actions {
   margin-top: 48px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
   opacity: 0; animation: heroIn .8s .75s forwards;
