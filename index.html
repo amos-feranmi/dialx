@@ -117,6 +117,28 @@ src="https://www.facebook.com/tr?id=1330182245677923&ev=PageView&noscript=1"
       <span><strong>DialX Impact</strong> · July 25th, 2026 · Redemption City, Nigeria</span>
     </div>
 
+    <div class="hero-countdown" aria-label="Countdown to DialX Impact">
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-days">--</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-mins">--</span>
+        <span class="countdown-label">Mins</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-secs">--</span>
+        <span class="countdown-label">Secs</span>
+      </div>
+    </div>
+
     <div class="hero-actions">
       <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
       <a href="#event" class="btn-ghost">
@@ -488,6 +510,32 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+/* ── Countdown to July 25, 2026 (WAT UTC+1) ── */
+(function() {
+  var EVENT = new Date('2026-07-25T00:00:00+01:00').getTime();
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    var diff = EVENT - Date.now();
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent  = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent  = '00';
+      document.getElementById('cd-secs').textContent  = '00';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent  = pad(m);
+    document.getElementById('cd-secs').textContent  = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 </script>
 </body>
 </html>
