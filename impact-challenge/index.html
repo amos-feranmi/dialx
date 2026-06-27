@@ -336,40 +336,6 @@ img { display: block; max-width: 100%; }
 }
 
 /* ═══════════════════════════════
-   WHAT WE'RE LOOKING FOR
-═══════════════════════════════ */
-#criteria {
-  background: var(--cream);
-  padding: 130px 0;
-}
-.criteria-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2px; background: var(--cream-dark);
-  margin-top: 0;
-}
-.criteria-card {
-  background: var(--cream); padding: 44px 40px;
-  border-left: 3px solid transparent;
-  transition: border-color .25s, background .25s, transform .25s;
-}
-.criteria-card:hover {
-  border-color: var(--orange);
-  background: var(--white);
-  transform: translateX(4px);
-}
-.criteria-num {
-  font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
-}
-.criteria-name {
-  font-size: 20px; font-weight: 800; color: var(--navy);
-  letter-spacing: -.4px; margin-bottom: 12px; line-height: 1.2;
-}
-.criteria-desc {
-  font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 500;
-}
-
-/* ═══════════════════════════════
    RULES
 ═══════════════════════════════ */
 #rules {
@@ -417,75 +383,6 @@ img { display: block; max-width: 100%; }
   padding: 24px 32px;
   font-size: 16px; font-weight: 600; color: rgba(255,255,255,.8);
   line-height: 1.55; letter-spacing: -.2px;
-}
-
-/* ═══════════════════════════════
-   FAQ
-═══════════════════════════════ */
-#faq {
-  background: var(--cream);
-  padding: 130px 0;
-}
-.faq-inner {
-  display: grid; grid-template-columns: 1fr 1.6fr;
-  gap: 80px; align-items: start;
-}
-.faq-left {}
-.faq-sticky { position: sticky; top: 104px; }
-.faq-eyebrow {
-  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--orange);
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-bottom: 16px;
-}
-.faq-eyebrow::before {
-  content: ''; display: block; width: 22px; height: 2px;
-  background: currentColor; flex-shrink: 0;
-}
-.faq-h2 {
-  font-weight: 900; font-size: clamp(34px, 4vw, 52px);
-  letter-spacing: -1.5px; line-height: 1; color: var(--navy); margin-bottom: 20px;
-}
-.faq-tagline {
-  font-family: 'DM Serif Display', serif; font-style: italic;
-  font-size: 17px; color: var(--muted); line-height: 1.6;
-}
-.faq-list { display: flex; flex-direction: column; }
-.faq-item {
-  border-bottom: 1px solid var(--line);
-}
-.faq-item:first-child { border-top: 1px solid var(--line); }
-.faq-btn {
-  width: 100%; background: none; border: none; cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 24px 0; text-align: left;
-}
-.faq-q {
-  font-size: 16px; font-weight: 700; color: var(--navy);
-  letter-spacing: -.3px; line-height: 1.35;
-}
-.faq-btn:hover .faq-q { color: var(--orange); }
-.faq-icon {
-  flex-shrink: 0; width: 28px; height: 28px;
-  border: 1.5px solid rgba(0,0,0,.15); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  transition: background .2s, border-color .2s, transform .35s;
-}
-.faq-item.open .faq-icon {
-  background: var(--orange); border-color: var(--orange);
-  transform: rotate(45deg);
-}
-.faq-icon svg { color: var(--navy); transition: color .2s; }
-.faq-item.open .faq-icon svg { color: var(--white); }
-.faq-panel {
-  overflow: hidden; max-height: 0;
-  transition: max-height .4s cubic-bezier(.22,.61,.36,1);
-}
-.faq-a {
-  padding: 0 0 24px 0;
-  font-size: 15px; color: #555; line-height: 1.8; font-weight: 400;
-  max-width: 540px;
 }
 
 /* ═══════════════════════════════
@@ -565,15 +462,12 @@ footer {
   #nav { padding: 0 24px; }
   .hero-inner { padding: 0 24px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  .faq-inner { grid-template-columns: 1fr; gap: 48px; }
-  .faq-sticky { position: static; }
   .enter-inner { padding: 0 24px; }
   .footer-bar { padding: 28px 24px; }
-  #prizes, #rules, #how, #criteria, #faq, #enter { padding: 96px 0; }
+  #prizes, #rules, #how, #enter { padding: 96px 0; }
 }
 @media(max-width:600px) {
   .steps-grid { grid-template-columns: 1fr; }
-  .criteria-grid { grid-template-columns: 1fr; }
   .hero-h1 { letter-spacing: -2px; }
   .enter-h2 { letter-spacing: -1.5px; }
   .nav-back { display: none; }
@@ -676,44 +570,6 @@ footer {
   </div>
 </section>
 
-<!-- ░░ WHAT WE'RE LOOKING FOR ░░ -->
-<section id="criteria">
-  <div class="container">
-    <div class="section-header">
-      <div class="u-tag u-orange reveal">Judging Criteria</div>
-      <h2 class="section-h2 reveal reveal-d1">What we're<br><em>looking for.</em></h2>
-    </div>
-
-    <div class="criteria-grid">
-      <div class="criteria-card reveal">
-        <div class="criteria-num">01</div>
-        <div class="criteria-name">Authentic Stories</div>
-        <div class="criteria-desc">We want real experiences — not performances. Share what actually happened and how it changed things.</div>
-      </div>
-      <div class="criteria-card reveal reveal-d1">
-        <div class="criteria-num">02</div>
-        <div class="criteria-name">Creativity</div>
-        <div class="criteria-desc">Compelling delivery matters. Show us a story told with thought, care, and a clear point of view.</div>
-      </div>
-      <div class="criteria-card reveal reveal-d2">
-        <div class="criteria-num">03</div>
-        <div class="criteria-name">Real Impact</div>
-        <div class="criteria-desc">Your story should reflect measurable or meaningful change — in yourself, your work, or your community.</div>
-      </div>
-      <div class="criteria-card reveal reveal-d3">
-        <div class="criteria-num">04</div>
-        <div class="criteria-name">Clear Communication</div>
-        <div class="criteria-desc">A great story lands clearly. We look for concise, well-structured entries that hold attention from start to finish.</div>
-      </div>
-      <div class="criteria-card reveal reveal-d4">
-        <div class="criteria-num">05</div>
-        <div class="criteria-name">Originality</div>
-        <div class="criteria-desc">Fresh perspectives win. We value entries that bring a unique angle or approach we haven't heard before.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ░░ RULES ░░ -->
 <section id="rules">
   <div class="rules-lines"></div>
@@ -754,79 +610,6 @@ footer {
           <span class="rule-text">DialX may feature submitted entries in marketing materials, with credit to the creator.</span>
         </li>
       </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ░░ FAQ ░░ -->
-<section id="faq">
-  <div class="container">
-    <div class="faq-inner">
-      <div class="faq-left">
-        <div class="faq-sticky">
-          <div class="faq-eyebrow reveal">FAQ</div>
-          <h2 class="faq-h2 reveal reveal-d1">Questions<br>answered.</h2>
-          <p class="faq-tagline reveal reveal-d2">Everything you need to know about entering the DialX Impact Challenge.</p>
-        </div>
-      </div>
-
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">Who can participate?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel" role="region">
-            <p class="faq-a">Anyone can participate in the DialX Impact Challenge — you don't need to be a ticket holder. If your story reflects real impact, we want to hear it.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">What platforms can I post on?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel" role="region">
-            <p class="faq-a">Instagram, TikTok, or X (Twitter). Make sure your post is public and includes the required tag and hashtag.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">How long should my video be?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel" role="region">
-            <p class="faq-a">Keep it between 30 seconds and 3 minutes. Short, focused, and impactful works best.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">How will winners be judged?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel" role="region">
-            <p class="faq-a">Entries are judged on authenticity, creativity, clarity of impact, and originality by the DialX team.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">When will winners be announced?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel" role="region">
-            <p class="faq-a">Winners will be announced at DialX Impact on July 25, 2026, and online shortly after.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -885,28 +668,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 
-/* ── FAQ accordion ── */
-document.querySelectorAll('.faq-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var item = btn.closest('.faq-item');
-    var panel = item.querySelector('.faq-panel');
-    var isOpen = item.classList.contains('open');
-
-    /* close all */
-    document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
-      openItem.classList.remove('open');
-      openItem.querySelector('.faq-panel').style.maxHeight = '0';
-      openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
-    });
-
-    /* open clicked if it was closed */
-    if (!isOpen) {
-      item.classList.add('open');
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
 </script>
 </body>
 </html>
