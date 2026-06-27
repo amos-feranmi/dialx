@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DialX Impact Challenge — Tell Your Story. Win Prizes.</title>
-<meta name="description" content="Enter the DialX Impact Challenge. Share your impact story on social media, tag @dialxafrica, use #DialXImpact, and win a laptop and more.">
+<meta name="description" content="Enter the DialX Impact Challenge. Share your impact story on social media, tag @dialxafrica, use #DialXImpact, and win prizes.">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="../assets/favicon.png">
@@ -12,7 +12,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="DialX Impact Challenge — Tell Your Story. Win Prizes.">
-<meta property="og:description" content="Enter the DialX Impact Challenge. Share your impact story on social media, tag @dialxafrica, use #DialXImpact, and win a laptop and more.">
+<meta property="og:description" content="Enter the DialX Impact Challenge. Share your impact story on social media, tag @dialxafrica, use #DialXImpact, and win prizes.">
 <meta property="og:image" content="../assets/og-image.png">
 
 <!-- Fonts -->
@@ -328,76 +328,11 @@ img { display: block; max-width: 100%; }
   pointer-events: none; user-select: none; line-height: 1;
 }
 .prizes-inner { position: relative; z-index: 1; }
-.prizes-header { margin-bottom: 64px; }
+.prizes-header { margin-bottom: 40px; }
 .prizes-header .section-h2 { color: var(--white); }
-.grand-prize {
-  background: rgba(254,109,19,.08);
-  border: 2px solid rgba(254,109,19,.45);
-  padding: 56px 52px;
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: center; gap: 40px;
-  margin-bottom: 2px;
-  position: relative; overflow: hidden;
-  transition: border-color .25s, background .25s;
-}
-.grand-prize::before {
-  content: 'GRAND PRIZE';
-  position: absolute; top: 24px; right: 28px;
-  font-size: 9px; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--orange);
-}
-.grand-prize:hover { border-color: var(--orange); background: rgba(254,109,19,.12); }
-.grand-icon {
-  width: 72px; height: 72px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(254,109,19,.15); border: 1px solid rgba(254,109,19,.3);
-  border-radius: 2px;
-}
-.grand-icon svg { color: var(--orange); }
-.grand-text {}
-.grand-eyebrow {
-  font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: rgba(255,255,255,.45);
-  margin-bottom: 10px;
-}
-.grand-title {
-  font-size: clamp(28px, 3.5vw, 44px); font-weight: 900;
-  color: var(--white); letter-spacing: -1.5px; line-height: 1; margin-bottom: 10px;
-}
-.grand-desc {
-  font-size: 15px; color: rgba(255,255,255,.5); font-weight: 500; line-height: 1.65;
-}
-.other-prizes {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 2px; background: rgba(255,255,255,.04);
-}
-.prize-card {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 40px 40px;
-  transition: background .25s, border-color .25s, transform .25s;
-}
-.prize-card:hover {
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.18);
-  transform: translateY(-2px);
-}
-.prize-icon {
-  width: 48px; height: 48px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,.06); border-radius: 2px;
-  color: rgba(255,255,255,.5); margin-bottom: 24px;
-}
-.prize-label {
-  font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 10px;
-}
-.prize-title {
-  font-size: 22px; font-weight: 800; color: var(--white);
-  letter-spacing: -.5px; margin-bottom: 10px;
-}
-.prize-desc {
-  font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.65; font-weight: 500;
+.prizes-desc {
+  font-size: 18px; color: rgba(255,255,255,.55); line-height: 1.75;
+  font-weight: 500; max-width: 560px;
 }
 
 /* ═══════════════════════════════
@@ -630,9 +565,6 @@ footer {
   #nav { padding: 0 24px; }
   .hero-inner { padding: 0 24px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  .grand-prize { grid-template-columns: 1fr; }
-  .grand-prize::before { position: static; margin-bottom: 8px; display: block; }
-  .other-prizes { grid-template-columns: 1fr; }
   .faq-inner { grid-template-columns: 1fr; gap: 48px; }
   .faq-sticky { position: static; }
   .enter-inner { padding: 0 24px; }
@@ -731,47 +663,10 @@ footer {
       <div class="prizes-header">
         <div class="u-tag u-white reveal">What You Can Win</div>
         <h2 class="section-h2 reveal reveal-d1" style="color:var(--white);">
-          Prizes worth<br><em>talking about.</em>
+          Prizes worth<br><em>showing up for.</em>
         </h2>
       </div>
-
-      <!-- Grand Prize -->
-      <div class="grand-prize reveal">
-        <div class="grand-text">
-          <div class="grand-eyebrow">1st Place</div>
-          <div class="grand-title">Laptop</div>
-          <div class="grand-desc">The grand prize winner takes home a brand new laptop — yours to build, create, and execute with. The best story wins the best prize.</div>
-        </div>
-        <div class="grand-icon">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Other Prizes -->
-      <div class="other-prizes">
-        <div class="prize-card reveal">
-          <div class="prize-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
-            </svg>
-          </div>
-          <div class="prize-label">2nd Place</div>
-          <div class="prize-title">Headphones</div>
-          <div class="prize-desc">Premium wireless headphones for the runner-up — because great storytellers deserve great sound.</div>
-        </div>
-        <div class="prize-card reveal reveal-d1">
-          <div class="prize-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
-            </svg>
-          </div>
-          <div class="prize-label">3rd Place & More</div>
-          <div class="prize-title">Additional Gifts</div>
-          <div class="prize-desc">More exciting gifts for top entries and honourable mentions — because every great story deserves recognition.</div>
-        </div>
-      </div>
+      <p class="prizes-desc reveal">The best entries win exciting prizes. Details will be announced closer to the event — follow <a href="https://www.instagram.com/dialxafrica" target="_blank" style="color:var(--orange);">@dialxafrica</a> to stay updated.</p>
     </div>
   </div>
 </section>
