@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DialX FAQ — Common Questions Answered</title>
+  <meta name="description" content="Find answers to common questions about DialX Impact 2026 — tickets, speakers, venue, the Builders Grant, Impact Challenge, and more.">
+  <meta property="og:title" content="DialX FAQ — Common Questions Answered">
+  <meta property="og:description" content="Find answers to common questions about DialX Impact 2026 — tickets, speakers, venue, the Builders Grant, Impact Challenge, and more.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dialxafrica.com/faq">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DialX FAQ — Common Questions Answered">
+  <meta name="twitter:description" content="Find answers to common questions about DialX Impact 2026 — tickets, speakers, venue, the Builders Grant, and more.">
+  <meta name="twitter:image" content="/assets/og-image.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #010B2E;
+      --navy-deep: #000820;
+      --orange: #FE6D13;
+      --orange-hi: #ff8c42;
+      --cream: #f6f5f1;
+      --cream-dark: #eeede8;
+      --white: #ffffff;
+      --ink: #111111;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    nav.scrolled {
+      background: var(--navy-deep);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    }
+
+    .nav-logo img {
+      height: 32px;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-back {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 10px 22px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-hi);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(254,109,19,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(254,109,19,0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.62);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── FAQ SECTION ── */
+    .faq-section {
+      background: var(--cream);
+      padding: 80px 40px 100px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── CATEGORY ── */
+    .faq-category {
+      margin-bottom: 64px;
+    }
+
+    .faq-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .category-heading {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .category-heading::after {
+      content: '';
+      display: block;
+      height: 2px;
+      flex: 1;
+      background: var(--cream-dark);
+      border-radius: 2px;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.07);
+      background: var(--white);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      position: relative;
+      transition: border-left 0.2s;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-item.is-open {
+      border-left: 3px solid var(--orange);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+
+    .accordion-trigger:hover {
+      color: var(--navy);
+    }
+
+    .accordion-item.is-open .accordion-trigger {
+      color: var(--navy);
+    }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s, transform 0.3s;
+      color: var(--ink);
+    }
+
+    .accordion-item.is-open .accordion-icon {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .accordion-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-body-inner {
+      padding: 0 24px 22px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.75;
+    }
+
+    .accordion-body-inner a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .accordion-body-inner a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-back {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .footer-back:hover {
+      color: var(--white);
+    }
+
+    .footer-copy {
+      color: rgba(255,255,255,0.38);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .footer-site {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .footer-site:hover {
+      color: var(--white);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+        height: 60px;
+      }
+
+      .nav-back {
+        display: none;
+      }
+
+      .hero {
+        padding: 100px 24px 64px;
+        min-height: 44vh;
+      }
+
+      .faq-section {
+        padding: 56px 20px 72px;
+      }
+
+      .accordion-trigger {
+        padding: 18px 18px;
+        font-size: 13.5px;
+      }
+
+      .accordion-body-inner {
+        padding: 0 18px 18px;
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 28px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-copy {
+        order: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="/">
+      <img src="/assets/DialX-logo-white.svg" alt="DialX" style="height:32px;">
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="/">← Main Site</a>
+      <a class="nav-cta" href="https://amos.selar.com/dialx" target="_blank" rel="noopener">Get Tickets</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Frequently Asked Questions</div>
+      <h1>Everything you need to know.</h1>
+      <p class="hero-subtitle">Find answers to common questions about DialX, tickets, speakers, and more.</p>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="faq-container">
+
+      <!-- ABOUT DIALX -->
+      <div class="faq-category reveal">
+        <div class="category-heading">About DialX</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is DialX?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX is a live knowledge event where builders, creatives, and professionals share real experiences and practical ideas from their work, careers, and communities. It is built around the belief that better conversations create better thinking.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Where is DialX Impact 2026 taking place?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX Impact 2026 will be held at Redemption City, Nigeria on July 25, 2026.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Who is DialX for?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX is for anyone curious about how things work and committed to making them work better — founders, creatives, professionals, students, and builders.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is DialX Impact?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX Impact is the first live edition of DialX, focused on how people create real change in their work, communities, and environments through execution and clarity.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TICKETS -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Tickets</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How do I get a ticket?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Tickets are available at <a href="https://amos.selar.com/dialx" target="_blank" rel="noopener">amos.selar.com/dialx</a>. Purchase early as seats are limited.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Are tickets refundable?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Tickets are generally non-refundable. If you are unable to attend, you may transfer your ticket to someone else. Contact <a href="mailto:official.dialx@gmail.com">official.dialx@gmail.com</a> for assistance.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Is there a discount for students?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Contact us at <a href="mailto:official.dialx@gmail.com">official.dialx@gmail.com</a> to ask about student pricing options.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Will there be a livestream?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We are exploring options for a digital experience. Follow <a href="https://instagram.com/dialxafrica" target="_blank" rel="noopener">@dialxafrica</a> for updates.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SPEAKERS -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Speakers</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Who are the confirmed speakers?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We have confirmed speakers including Seyi Ogunbiyi, Chude Jideonwo, Oluwatoba Ajayi, Saint Agomeze, and Oyewunmi Oluwafemi. More speakers will be announced soon.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How can I apply to speak at DialX?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We are not currently accepting open speaker applications for DialX Impact 2026. Follow us for future opportunities.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Will speaker talks be available after the event?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We plan to share recordings and highlights after the event. Follow <a href="https://instagram.com/dialxafrica" target="_blank" rel="noopener">@dialxafrica</a> to stay updated.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VENUE & ACCESSIBILITY -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Venue &amp; Accessibility</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Where exactly is the venue?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                The event takes place at Redemption City, Nigeria. Detailed venue directions will be shared with ticket holders closer to the event date.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Is the venue accessible for people with disabilities?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We are committed to making DialX accessible. Contact us at <a href="mailto:official.dialx@gmail.com">official.dialx@gmail.com</a> with any specific accessibility needs.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Is there parking available?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Yes, parking is available at the venue. Details will be shared with ticket holders.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BUILDERS GRANT -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Builders Grant</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is the DialX Impact Builders Grant?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                The DialX Impact Builders Grant is a $1,000 cash grant awarded to one standout builder at DialX Impact 2026 who is actively building a business, project, or initiative.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Who can apply for the grant?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Only DialX Impact 2026 ticket holders can apply. You must be actively building something with real evidence of progress.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How do I apply?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Visit <a href="/grantform">/grantform</a> to complete the application form. You must have a valid DialX Impact 2026 ticket to apply.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              When will the grant winner be announced?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                The winner will be announced at DialX Impact 2026 on July 25, 2026.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IMPACT CHALLENGE -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Impact Challenge</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is the DialX Impact Challenge?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                The Impact Challenge invites anyone to share their impact story on social media for a chance to win prizes including a laptop.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How do I enter?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Record a short video, post it on Instagram, TikTok, or X, tag <strong>@dialxafrica</strong>, and use <strong>#DialXImpact</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Do I need a ticket to enter the Impact Challenge?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                No. The Impact Challenge is open to everyone regardless of whether you have a ticket.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              When do winners get announced?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Winners are announced at DialX Impact on July 25, 2026 and online after the event.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PARTNERSHIPS & SPONSORSHIP -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Partnerships &amp; Sponsorship</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How can my organization partner with DialX?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                We welcome partnerships that align with our mission. Email <a href="mailto:amos.feranmi@gmail.com">amos.feranmi@gmail.com</a> or <a href="mailto:official.dialx@gmail.com">official.dialx@gmail.com</a> with your partnership proposal.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How can my brand sponsor DialX?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                For sponsorship inquiries, email <a href="mailto:official.dialx@gmail.com">official.dialx@gmail.com</a> with subject "DialX Sponsorship" or request our deck.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Can I volunteer at DialX?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Yes! Apply to join the team at the Join the Team section on the <a href="/">main site</a>.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EVENT SCHEDULE -->
+      <div class="faq-category reveal">
+        <div class="category-heading">Event Schedule</div>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What time does the event start?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX Impact 2026 begins at a time that will be communicated to ticket holders. Arrive early for registration.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How long is the event?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                DialX Impact is a full-day event. The exact schedule will be shared with ticket holders.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Will there be networking opportunities?
+              <span class="accordion-icon">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0v12M0 6h12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                Yes. DialX is designed to create real conversations and connections, with dedicated networking time.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-back" href="/">← Back to Main Site</a>
+    <span class="footer-copy">© 2026 DialX</span>
+    <a class="footer-site" href="/">dialxafrica.com</a>
+  </footer>
+
+  <script>
+    // ── NAV SCROLL ──
+    (function () {
+      var nav = document.getElementById('main-nav');
+      function onScroll() {
+        if (window.scrollY > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // ── SCROLL REVEAL ──
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('up');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+
+    // ── ACCORDION ──
+    (function () {
+      var triggers = document.querySelectorAll('.accordion-trigger');
+
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var item = trigger.closest('.accordion-item');
+          var body = item.querySelector('.accordion-body');
+          var isOpen = item.classList.contains('is-open');
+
+          // Close all siblings in the same accordion
+          var accordion = item.closest('.accordion');
+          var siblings = accordion.querySelectorAll('.accordion-item');
+          siblings.forEach(function (sib) {
+            if (sib !== item) {
+              sib.classList.remove('is-open');
+              sib.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+              var sibBody = sib.querySelector('.accordion-body');
+              sibBody.style.maxHeight = '0';
+            }
+          });
+
+          if (isOpen) {
+            item.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+            body.style.maxHeight = '0';
+          } else {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

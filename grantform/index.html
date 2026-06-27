@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — DialX Impact Builders Grant ($1,000)</title>
+<meta name="description" content="Apply for the DialX Impact Builders Grant. One builder receives $1,000 to accelerate their business, project, or idea. Open to DialX Impact 2026 attendees.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apply — DialX Impact Builders Grant ($1,000)">
+<meta property="og:description" content="One builder receives $1,000 to accelerate their business, project, or idea.">
+<meta property="og:image" content="../assets/og-image.png">
+<script async src="https://tally.so/widgets/embed.js"></script>
+<style>
+:root {
+  --navy:       #010B2E;
+  --navy-deep:  #000820;
+  --orange:     #FE6D13;
+  --orange-hi:  #ff8c42;
+  --white:      #ffffff;
+  --cream:      #f6f5f1;
+  --ink:        #111111;
+  --muted:      #777;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  padding: 0 48px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .35s, box-shadow .35s;
+}
+#nav.solid {
+  background: rgba(1,11,46,.97); backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.07);
+}
+.nav-logo { display: flex; align-items: center; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-back {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,.5); transition: color .2s;
+}
+.nav-back:hover { color: var(--white); }
+.nav-cta {
+  display: inline-block; padding: 10px 26px;
+  background: var(--orange); color: var(--white);
+  font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; border-radius: 2px; transition: background .2s;
+}
+.nav-cta:hover { background: var(--orange-hi); }
+@media(max-width:768px){ #nav { padding: 0 24px; } .nav-back, .nav-cta { display: none; } }
+
+/* HEADER */
+.page-header {
+  background: var(--navy); padding: 140px 48px 80px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(254,109,19,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-header-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(-48deg, transparent, transparent 88px, rgba(255,255,255,.03) 88px, rgba(255,255,255,.03) 89px);
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(254,109,19,.15); border: 1px solid rgba(254,109,19,.3);
+  border-radius: 2px; padding: 7px 16px; margin-bottom: 28px;
+}
+.header-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(254,109,19,.25);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(254,109,19,.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(254,109,19,.08); }
+}
+.header-badge span { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); }
+.page-header h1 {
+  font-weight: 900; font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -2px; line-height: 1; color: var(--white);
+  position: relative; z-index: 1;
+}
+.page-header h1 em {
+  display: block; font-family: 'DM Serif Display', serif;
+  font-style: italic; font-weight: 400; color: var(--orange);
+  font-size: clamp(32px, 4.5vw, 58px); letter-spacing: -1.5px;
+}
+.page-header p {
+  margin-top: 20px; font-size: 16px; color: rgba(255,255,255,.6);
+  font-weight: 500; line-height: 1.7; max-width: 520px; margin-left: auto; margin-right: auto;
+  position: relative; z-index: 1;
+}
+
+/* FORM SECTION */
+.form-section {
+  background: var(--cream); padding: 72px 48px 96px;
+}
+.form-inner {
+  max-width: 760px; margin: 0 auto;
+}
+.form-note {
+  background: var(--white); border: 1px solid rgba(1,11,46,.1);
+  border-left: 3px solid var(--orange);
+  border-radius: 4px; padding: 18px 24px; margin-bottom: 40px;
+  font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.6;
+}
+.form-note strong { color: var(--navy); }
+.tally-wrap iframe { border: none; }
+
+/* FOOTER */
+footer {
+  background: var(--navy); padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,.06);
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-back { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.35); transition: color .2s; }
+.footer-back:hover { color: var(--white); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,.2); font-weight: 500; }
+@media(max-width:600px){ .form-section { padding: 48px 24px; } footer { padding: 24px; flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../" class="nav-logo"><img src="../assets/DialX-logo-white.svg" alt="DialX" class="nav-logo-img"></a>
+  <div class="nav-right">
+    <a href="../grant" class="nav-back">← Builders Grant</a>
+    <a href="https://amos.selar.com/dialx" target="_blank" class="nav-cta">Get Tickets</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-lines"></div>
+  <div class="header-badge">
+    <span class="dot"></span>
+    <span>DialX Impact 2026 · Attendees Only</span>
+  </div>
+  <h1>
+    Builders Grant
+    <em>Application</em>
+  </h1>
+  <p>One builder receives $1,000 to accelerate their business, project, or idea. Complete the form below to apply.</p>
+</div>
+
+<section class="form-section">
+  <div class="form-inner">
+    <div class="form-note">
+      <strong>Ticket required.</strong> Applications are only open to DialX Impact 2026 attendees. <a href="https://amos.selar.com/dialx" target="_blank" style="color:var(--orange);">Get your ticket first →</a>
+    </div>
+    <div class="tally-wrap">
+      <iframe
+        data-tally-src="https://tally.so/r/kdvoJM?transparentBackground=1&formEventsForwarding=1"
+        loading="lazy"
+        width="100%"
+        height="700"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="DialX Impact Builders Grant Application">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="../grant" class="footer-back">← Back to Builders Grant</a>
+  <span class="footer-copy">© 2026 DialX. All rights reserved.</span>
+  <a href="../" class="footer-back">Main Site</a>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 60);
+}, { passive: true });
+</script>
+</body>
+</html>
