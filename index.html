@@ -69,7 +69,43 @@ src="https://www.facebook.com/tr?id=1330182245677923&ev=PageView&noscript=1"
     <li><a href="#event">Event</a></li>
     <li><a href="#for">Who It's For</a></li>
     <li><a href="#team">Join the Team</a></li>
-    <li><a href="#" style="color:rgba(255,255,255,.3); cursor:default;">Blog (Soon)</a></li>
+    <li class="nav-more-item">
+      <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
+        More
+        <svg class="nav-more-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 3 3-3"/></svg>
+      </button>
+      <div class="nav-dropdown" role="menu">
+        <a href="/grant" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.5,1 9.5,5.5 14.5,5.5 10.5,8.5 12,13.5 7.5,10.5 3,13.5 4.5,8.5 0.5,5.5 5.5,5.5"/></svg></span>
+          <span class="nav-dropdown-label">Builders Grant</span>
+        </a>
+        <a href="/impact-challenge" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="7.5" cy="7.5" r="6.5"/><circle cx="7.5" cy="7.5" r="3.5"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="nav-dropdown-label">Impact Challenge</span>
+        </a>
+        <div class="nav-dropdown-div" role="separator"></div>
+        <a href="/blog" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 1H3a1 1 0 00-1 1v11a1 1 0 001 1h9a1 1 0 001-1V5.5L8.5 1z"/><path d="M8.5 1v4.5H13"/><line x1="5" y1="8.5" x2="10" y2="8.5"/><line x1="5" y1="11" x2="10" y2="11"/></svg></span>
+          <span class="nav-dropdown-text">
+            <span class="nav-dropdown-label">Blog</span>
+            <span class="nav-dropdown-soon">Coming Soon</span>
+          </span>
+        </a>
+        <a href="/partners" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13v-1a3 3 0 00-3-3H4a3 3 0 00-3 3v1"/><circle cx="5.5" cy="5.5" r="2.5"/><path d="M13 13v-1a3 3 0 00-2-2.83"/><path d="M9.5 2.63a2.5 2.5 0 010 5.74"/></svg></span>
+          <span class="nav-dropdown-label">Partners</span>
+        </a>
+        <a href="/volunteer" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12.5S1.5 8.5 1.5 4.5a3 3 0 015.12-2.12A3 3 0 0113.5 4.5c0 4-6 8-6 8z"/></svg></span>
+          <span class="nav-dropdown-label">Volunteer Opportunities</span>
+        </a>
+        <div class="nav-dropdown-div" role="separator"></div>
+        <a href="/faq" class="nav-dropdown-item" role="menuitem">
+          <span class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="7.5" cy="7.5" r="6.5"/><path d="M5.5 5.5a2 2 0 013.9.67c0 1.33-2 2-2 2"/><circle cx="7.5" cy="11.5" r=".75" fill="currentColor" stroke="none"/></svg></span>
+          <span class="nav-dropdown-label">FAQs</span>
+        </a>
+      </div>
+    </li>
   </ul>
   <a href="https://amos.selar.com/dialx" target="_blank" class="nav-cta desktop">Get Tickets</a>
   <div class="nav-burger" id="burger" aria-label="Menu">
@@ -83,7 +119,20 @@ src="https://www.facebook.com/tr?id=1330182245677923&ev=PageView&noscript=1"
   <a href="#event" class="mob-link">Event</a>
   <a href="#for" class="mob-link">Who It's For</a>
   <a href="#team" class="mob-link">Join the Team</a>
-  <a href="#" style="opacity:.35">Blog <span style="font-size:12px;font-weight:600">(Coming Soon)</span></a>
+  <div class="mob-more">
+    <button class="mob-more-btn" aria-expanded="false">
+      More
+      <svg class="mob-more-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5l4 4 4-4"/></svg>
+    </button>
+    <div class="mob-more-panel">
+      <a href="/grant" class="mob-more-link">Builders Grant</a>
+      <a href="/impact-challenge" class="mob-more-link">Impact Challenge</a>
+      <a href="/blog" class="mob-more-link">Blog <span class="mob-soon-tag">Soon</span></a>
+      <a href="/partners" class="mob-more-link">Partners</a>
+      <a href="/volunteer" class="mob-more-link">Volunteer</a>
+      <a href="/faq" class="mob-more-link">FAQs</a>
+    </div>
+  </div>
   <a href="https://amos.selar.com/dialx" target="_blank" style="color:var(--orange)">→ Get Tickets</a>
 </div>
 
@@ -485,6 +534,39 @@ mobileNav.querySelectorAll('a').forEach(a => {
     document.body.style.overflow = '';
   });
 });
+
+/* ── More dropdown ── */
+const moreItem = document.querySelector('.nav-more-item');
+const moreBtn  = document.querySelector('.nav-more-btn');
+if (moreItem && moreBtn) {
+  moreBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = moreItem.classList.toggle('open');
+    moreBtn.setAttribute('aria-expanded', isOpen);
+  });
+  moreItem.querySelector('.nav-dropdown').addEventListener('click', e => e.stopPropagation());
+  document.addEventListener('click', () => {
+    moreItem.classList.remove('open');
+    moreBtn.setAttribute('aria-expanded', 'false');
+  });
+  moreBtn.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      moreItem.classList.remove('open');
+      moreBtn.setAttribute('aria-expanded', 'false');
+      moreBtn.focus();
+    }
+  });
+}
+
+/* ── Mobile More accordion ── */
+const mobMore    = document.querySelector('.mob-more');
+const mobMoreBtn = document.querySelector('.mob-more-btn');
+if (mobMore && mobMoreBtn) {
+  mobMoreBtn.addEventListener('click', () => {
+    const isOpen = mobMore.classList.toggle('open');
+    mobMoreBtn.setAttribute('aria-expanded', isOpen);
+  });
+}
 
 /* ── Scroll reveal ── */
 const reveals = document.querySelectorAll('.reveal');
