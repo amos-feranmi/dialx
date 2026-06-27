@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DialX Blog — Ideas, Insights &amp; Impact</title>
+  <meta name="description" content="Perspectives on leadership, entrepreneurship, and building things that work in Africa. The DialX Blog covers ideas, insights, and impact for African business builders." />
+  <meta property="og:title" content="DialX Blog — Ideas, Insights &amp; Impact" />
+  <meta property="og:description" content="Perspectives on leadership, entrepreneurship, and building things that work in Africa." />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #010B2E;
+      --navy-deep: #000820;
+      --orange: #FE6D13;
+      --orange-hi: #ff8c42;
+      --cream: #f6f5f1;
+      --cream-dark: #eeede8;
+      --white: #ffffff;
+      --ink: #111111;
+      --muted: #777;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 68px;
+      background: transparent;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    nav.scrolled {
+      background: var(--navy-deep);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .nav-logo img { height: 32px; display: block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a.back {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a.back:hover { color: #fff; }
+    .nav-links a.btn-tickets {
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .nav-links a.btn-tickets:hover { background: var(--orange-hi); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      min-height: 42vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(254,109,19,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 700px; }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-section {
+      background: var(--navy-deep);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+    }
+    .filter-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-right: 4px;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.65);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    /* ── ARTICLES GRID ── */
+    .articles-section {
+      padding: 72px 40px 96px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(1,11,46,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .card.up {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(1,11,46,0.13);
+    }
+    .card-accent {
+      height: 4px;
+      background: var(--orange);
+    }
+    .card-body {
+      padding: 28px 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-category {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .card-excerpt {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 16px;
+    }
+    .card-read-time {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .card-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .card-link:hover { color: var(--navy); }
+
+    /* hidden by filter */
+    .card.hidden {
+      display: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .footer-logo img { height: 28px; margin-bottom: 20px; }
+    .footer-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+    }
+    .footer-text a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+    .footer-text a:hover { color: var(--orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .articles-section { padding: 48px 20px 72px; }
+      .filter-section { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="/">
+      <img src="/assets/DialX-logo-white.svg" alt="DialX" style="height:32px;" />
+    </a>
+    <div class="nav-links">
+      <a class="back" href="/">&#8592; Main Site</a>
+      <a class="btn-tickets" href="/tickets">Get Tickets</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">DialX Blog</p>
+      <h1>Ideas. Insights. Impact.</h1>
+      <p class="hero-tagline">Perspectives on leadership, entrepreneurship, and building things that work in Africa.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-section">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Leadership">Leadership</button>
+    <button class="filter-btn" data-filter="Entrepreneurship">Entrepreneurship</button>
+    <button class="filter-btn" data-filter="Productivity">Productivity</button>
+    <button class="filter-btn" data-filter="Innovation">Innovation</button>
+    <button class="filter-btn" data-filter="Marketing">Marketing</button>
+    <button class="filter-btn" data-filter="AI &amp; Future of Work">AI &amp; Future of Work</button>
+    <button class="filter-btn" data-filter="African Business">African Business</button>
+  </div>
+
+  <!-- ARTICLES -->
+  <section class="articles-section">
+    <div class="articles-grid" id="articles-grid">
+
+      <!-- Card 1 -->
+      <article class="card" data-category="Leadership">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">Leadership</p>
+          <h2 class="card-title">Leading With Clarity: Lessons From Africa's Most Effective Builders</h2>
+          <p class="card-excerpt">The best African leaders don't just have vision — they translate it into direction that teams can act on. Vague leadership is expensive; clarity is a competitive advantage.</p>
+          <div class="card-footer">
+            <span class="card-read-time">8 min read</span>
+            <a class="card-link" href="/blog/leading-with-clarity.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card" data-category="Entrepreneurship">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">Entrepreneurship</p>
+          <h2 class="card-title">Why Execution Beats Ideas Every Time</h2>
+          <p class="card-excerpt">Africa has no shortage of brilliant ideas. What it has is an execution gap — and crossing that gap is the single biggest differentiator between builders who succeed and those who don't.</p>
+          <div class="card-footer">
+            <span class="card-read-time">6 min read</span>
+            <a class="card-link" href="/blog/why-execution-beats-ideas.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" data-category="Productivity">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">Productivity</p>
+          <h2 class="card-title">The Productivity Systems That Actually Work for African Entrepreneurs</h2>
+          <p class="card-excerpt">Generic productivity advice assumes stable power, fast internet, and quiet offices. This isn't that. Here's what actually works when you're building in African conditions.</p>
+          <div class="card-footer">
+            <span class="card-read-time">7 min read</span>
+            <a class="card-link" href="/blog/productivity-systems-for-entrepreneurs.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card" data-category="AI &amp; Future of Work">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">AI &amp; Future of Work</p>
+          <h2 class="card-title">How African Businesses Can Leverage AI Without Losing Their Edge</h2>
+          <p class="card-excerpt">AI tools are democratising capabilities once reserved for large corporations. But African entrepreneurs must be strategic — adopting AI that amplifies their human advantage, not erases it.</p>
+          <div class="card-footer">
+            <span class="card-read-time">9 min read</span>
+            <a class="card-link" href="/blog/african-businesses-and-ai.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card" data-category="African Business">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">African Business</p>
+          <h2 class="card-title">How Local Discovery Platforms Like Neighbourly Are Creating Community Impact</h2>
+          <p class="card-excerpt">In Nigerian cities, finding quality local businesses used to rely entirely on word of mouth. A new wave of hyperlocal discovery platforms is changing the economics of neighbourhood commerce.</p>
+          <div class="card-footer">
+            <span class="card-read-time">7 min read</span>
+            <a class="card-link" href="/blog/neighbourly-community-impact.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card" data-category="Marketing">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <p class="card-category">Marketing</p>
+          <h2 class="card-title">Building a Brand That People Actually Trust</h2>
+          <p class="card-excerpt">In Africa's community-driven markets, brand trust isn't built through campaigns — it's earned through consistency, authenticity, and the quiet accumulation of kept promises.</p>
+          <div class="card-footer">
+            <span class="card-read-time">6 min read</span>
+            <a class="card-link" href="/blog/building-a-trustworthy-brand.html">Read Article &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="/assets/DialX-logo-white.svg" alt="DialX" />
+    </div>
+    <p class="footer-text">
+      &copy; 2026 DialX. All rights reserved.<br />
+      <a href="/">Main Site</a> &nbsp;&middot;&nbsp; <a href="/tickets">Get Tickets</a>
+    </p>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('up');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.07}s`;
+      revealObserver.observe(el);
+    });
+
+    // Category filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#articles-grid .card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
