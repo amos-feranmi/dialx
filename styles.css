@@ -650,25 +650,41 @@ a { color: inherit; text-decoration: none; }
   border-radius: 6px; overflow: hidden;
   background: var(--navy-mid);
   position: relative;
+  border: 1px solid rgba(255,255,255,.08);
   transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
 }
 .speaker-card:hover .speaker-img-wrap {
   transform: translateY(-8px);
-  box-shadow: 0 28px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(254,109,19,.15);
+  box-shadow: 0 28px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(254,109,19,.3);
 }
+/* Duotone tint — unifies the mixed source photos into one brand-consistent set.
+   mix-blend-mode:color keeps the photo's luminance but recolors it warm→navy. */
+.speaker-img-wrap::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(158deg, #ff8c42 0%, #FE6D13 26%, #021157 78%, #010B2E 100%);
+  mix-blend-mode: color;
+  opacity: .9;
+  transition: opacity .45s cubic-bezier(.22,.61,.36,1);
+}
+.speaker-card:hover .speaker-img-wrap::before { opacity: 0; }
 .speaker-img-wrap::after {
   content: '';
-  position: absolute; inset: 0; pointer-events: none;
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: linear-gradient(to top, rgba(1,8,40,.92) 0%, rgba(1,11,46,.3) 45%, transparent 70%);
 }
 .speaker-img-wrap img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+  width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+  filter: grayscale(1) contrast(1.06) brightness(.98);
+  transition: transform .5s cubic-bezier(.22,.61,.36,1), filter .45s cubic-bezier(.22,.61,.36,1);
 }
-.speaker-card:hover .speaker-img-wrap img { transform: scale(1.06); }
+.speaker-card:hover .speaker-img-wrap img {
+  transform: scale(1.06);
+  filter: grayscale(0) contrast(1) brightness(1);
+}
 .speaker-info {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 18px 16px 16px; z-index: 2;
+  padding: 18px 16px 16px; z-index: 3;
 }
 .speaker-name {
   font-size: 13px; font-weight: 800; color: var(--white);
