@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Your Ticket — DialX Impact 2026 | July 25, Redemption City</title>
+<meta name="description" content="Join 500+ builders, creators, and professionals at DialX Impact 2026. July 25, Redemption City. Use code IMPACT for a discount. First 10 tickets FREE.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get Your Ticket — DialX Impact 2026">
+<meta property="og:description" content="First 10 tickets FREE. Use code IMPACT for a discount. July 25, 2026 · Redemption City.">
+<meta property="og:image" content="../assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #010B2E;
+  --navy-deep: #000820;
+  --navy-mid:  #021157;
+  --orange:    #FE6D13;
+  --orange-hi: #ff8c42;
+  --cream:     #f6f5f1;
+  --cream-dk:  #eeede8;
+  --white:     #ffffff;
+  --ink:       #111111;
+  --muted:     #666;
+  --line:      rgba(0,0,0,.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ── OFFER BAR ── */
+#offer-bar {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--orange);
+  padding: 12px 24px;
+  text-align: center;
+}
+.offer-bar-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.offer-bar-text {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  letter-spacing: .2px; line-height: 1.4;
+}
+.offer-bar-text strong { font-weight: 900; }
+.offer-code {
+  display: inline-block; background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.4);
+  padding: 3px 10px; border-radius: 3px;
+  font-size: 13px; font-weight: 900; color: var(--white);
+  letter-spacing: 2px;
+}
+.offer-bar-cta {
+  display: inline-block; background: var(--white); color: var(--orange);
+  font-size: 11px; font-weight: 900; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 8px 20px; border-radius: 2px;
+  white-space: nowrap; transition: opacity .2s;
+}
+.offer-bar-cta:hover { opacity: .85; }
+
+/* ── MINIMAL NAV ── */
+#nav {
+  position: sticky; top: 49px; z-index: 999;
+  background: rgba(1,11,46,.97); backdrop-filter: blur(14px);
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 1px 0 rgba(255,255,255,.07);
+}
+.nav-logo img { height: 28px; width: auto; display: block; }
+.nav-cta {
+  display: inline-block; padding: 10px 28px;
+  background: var(--orange); color: var(--white);
+  font-size: 11px; font-weight: 900; letter-spacing: 1.5px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s, transform .2s;
+}
+.nav-cta:hover { background: var(--orange-hi); transform: translateY(-1px); }
+@media(max-width:600px){ #nav { padding: 0 20px; } }
+
+/* ── HERO ── */
+#hero {
+  background: var(--navy);
+  padding: 100px 48px 100px;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.hero-mesh {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(254,109,19,.2) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 55% at 10% 90%, rgba(2,17,87,.7) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 90% 80%, rgba(1,11,46,.9) 0%, transparent 60%);
+}
+.hero-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(-48deg, transparent, transparent 88px, rgba(255,255,255,.035) 88px, rgba(255,255,255,.035) 89px);
+}
+.hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(254,109,19,.14); border: 1px solid rgba(254,109,19,.3);
+  border-radius: 2px; padding: 8px 18px; margin-bottom: 36px;
+  opacity: 0; animation: up .7s .1s forwards;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(254,109,19,.25); animation: pulse 2s infinite;
+}
+.hero-badge span { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); }
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(254,109,19,.25); }
+  50%      { box-shadow: 0 0 0 7px rgba(254,109,19,.08); }
+}
+.hero-h1 {
+  font-weight: 900; font-size: clamp(36px, 5.5vw, 76px);
+  letter-spacing: -2px; line-height: 1.05; color: var(--white);
+  opacity: 0; animation: up .8s .25s forwards;
+}
+.hero-h1 em {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-weight: 400; color: var(--orange); display: block;
+  font-size: clamp(30px, 4.5vw, 62px); letter-spacing: -1.5px; margin-top: 6px;
+}
+.hero-sub {
+  margin-top: 24px; max-width: 660px; margin-left: auto; margin-right: auto;
+  font-size: clamp(15px, 1.6vw, 18px); font-weight: 500;
+  color: rgba(255,255,255,.6); line-height: 1.75;
+  opacity: 0; animation: up .8s .4s forwards;
+}
+.hero-meta {
+  margin-top: 36px; display: flex; align-items: center; justify-content: center;
+  gap: 8px; flex-wrap: wrap;
+  opacity: 0; animation: up .8s .52s forwards;
+}
+.hero-meta-item {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 2px; padding: 10px 18px;
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,.85);
+}
+.hero-meta-item svg { color: var(--orange); flex-shrink: 0; }
+.hero-actions {
+  margin-top: 44px; display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: up .8s .65s forwards;
+}
+.btn-primary {
+  display: inline-block; padding: 18px 52px;
+  background: var(--orange); color: var(--white);
+  font-size: 13px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: var(--orange-hi); transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(254,109,19,.4);
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border: 2px solid rgba(255,255,255,.3); color: rgba(255,255,255,.75);
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.7); color: var(--white); background: rgba(255,255,255,.06); }
+.hero-countdown {
+  margin-top: 48px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  opacity: 0; animation: up .8s .75s forwards;
+}
+.cd-item { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 60px; }
+.cd-num {
+  font-size: clamp(32px, 4vw, 48px); font-weight: 900; line-height: 1;
+  letter-spacing: -2px; color: var(--white); font-variant-numeric: tabular-nums;
+}
+.cd-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); }
+.cd-sep { font-size: clamp(24px, 3vw, 36px); font-weight: 900; color: rgba(255,255,255,.2); line-height: 1; margin-bottom: 14px; }
+@keyframes up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(24px); transition: opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1); }
+.reveal.up { opacity:1; transform:translateY(0); }
+.rd1{transition-delay:.08s;} .rd2{transition-delay:.16s;} .rd3{transition-delay:.24s;} .rd4{transition-delay:.32s;}
+
+/* ── SECTION SHARED ── */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.section-h2 {
+  font-weight: 900; font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: -1.5px; line-height: 1.05;
+}
+.section-h2 em {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-weight: 400; color: var(--orange);
+}
+.container { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
+@media(max-width:768px){ .container { padding: 0 24px; } }
+
+/* ── FEATURED SPEAKER ── */
+#speakers { background: var(--navy); padding: 100px 0; }
+.speakers-tag { color: rgba(255,255,255,.45); }
+.speakers-h2 { color: var(--white); margin-bottom: 56px; }
+.featured-wrap {
+  background: rgba(254,109,19,.07); border: 1px solid rgba(254,109,19,.25);
+  display: grid; grid-template-columns: 380px 1fr;
+  gap: 0; margin-bottom: 24px; overflow: hidden;
+  border-radius: 4px;
+}
+.featured-img {
+  position: relative; height: 480px; overflow: hidden;
+}
+.featured-img img { width:100%; height:100%; object-fit:cover; object-position: top center; display:block; }
+.featured-img::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to right, transparent 60%, rgba(1,8,40,.8) 100%);
+}
+.feat-label {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--orange); color: var(--white);
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; padding: 6px 14px; border-radius: 2px; z-index: 2;
+}
+.featured-info {
+  padding: 56px 48px; display: flex; flex-direction: column; justify-content: center;
+}
+.featured-name {
+  font-size: clamp(32px, 3.5vw, 52px); font-weight: 900;
+  color: var(--white); letter-spacing: -1.5px; line-height: 1; margin-bottom: 12px;
+}
+.featured-role {
+  font-size: 15px; font-weight: 600; color: var(--orange); margin-bottom: 24px;
+}
+.featured-desc {
+  font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.75; font-weight: 400;
+  max-width: 440px;
+}
+.speakers-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.spk-card { position: relative; }
+.spk-img {
+  width:100%; aspect-ratio: 3/4; border-radius: 4px; overflow:hidden;
+  background: var(--navy-mid); position:relative;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
+}
+.spk-card:hover .spk-img { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,.5); }
+.spk-img::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(1,8,40,.9) 0%, transparent 55%);
+}
+.spk-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s cubic-bezier(.22,.61,.36,1); }
+.spk-card:hover .spk-img img { transform: scale(1.05); }
+.spk-info { position:absolute; bottom:0; left:0; right:0; padding:16px 14px; z-index:2; }
+.spk-name { font-size:13px; font-weight:800; color:var(--white); line-height:1.2; }
+.speakers-mid-cta {
+  text-align:center; margin-top: 48px;
+}
+
+/* ── WHY ATTEND ── */
+#why { background: var(--cream); padding: 100px 0; }
+.why-tag { color: var(--orange); }
+.why-h2 { color: var(--navy); margin-bottom: 56px; }
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--cream-dk);
+}
+.why-card {
+  background: var(--cream); padding: 40px 36px;
+  border-bottom: 3px solid transparent;
+  transition: border-color .25s, background .25s, transform .25s;
+  cursor: default;
+}
+.why-card:hover { border-color: var(--orange); background: var(--white); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.07); }
+.why-icon {
+  width: 48px; height: 48px; background: rgba(254,109,19,.1);
+  border-radius: 2px; display: flex; align-items: center; justify-content: center;
+  color: var(--orange); margin-bottom: 20px;
+}
+.why-title { font-size: 17px; font-weight: 800; color: var(--navy); letter-spacing:-.3px; margin-bottom: 8px; line-height: 1.2; }
+.why-desc { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 500; }
+
+/* ── BUILDERS GRANT ── */
+#grant {
+  background: var(--navy-deep); padding: 100px 0; position: relative; overflow: hidden;
+}
+#grant::after {
+  content: '';
+  position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(ellipse 65% 55% at 0% 50%, rgba(254,109,19,.12) 0%, transparent 60%);
+}
+.grant-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.grant-tag { color: rgba(255,255,255,.4); }
+.grant-h2 { color: var(--white); margin-bottom: 20px; }
+.grant-amount {
+  font-size: clamp(56px, 7vw, 96px); font-weight: 900;
+  color: var(--orange); letter-spacing: -3px; line-height: 1;
+  margin-bottom: 24px;
+}
+.grant-desc { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.8; font-weight: 400; margin-bottom: 36px; }
+.grant-desc strong { color: rgba(255,255,255,.85); font-weight: 600; }
+.btn-outline-white {
+  display: inline-block; padding: 14px 36px;
+  border: 2px solid rgba(255,255,255,.35); color: rgba(255,255,255,.75);
+  font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.btn-outline-white:hover { border-color: var(--white); color: var(--white); background: rgba(255,255,255,.06); }
+.grant-card {
+  background: rgba(254,109,19,.08); border: 1px solid rgba(254,109,19,.25);
+  padding: 48px 44px; border-radius: 4px;
+}
+.grant-card-title {
+  font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
+}
+.grant-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.grant-features li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.75); line-height: 1.45;
+}
+.grant-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-weight: 900; }
+
+/* ── TICKET ── */
+#ticket { background: var(--cream); padding: 100px 0; }
+.ticket-tag { color: var(--orange); }
+.ticket-h2 { color: var(--navy); margin-bottom: 16px; }
+.ticket-sub { font-size: 16px; color: var(--muted); margin-bottom: 56px; font-weight: 500; }
+.ticket-wrap { max-width: 640px; margin: 0 auto; }
+.ticket-card {
+  background: var(--navy); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 40px 80px rgba(1,11,46,.25), 0 0 0 1px rgba(255,255,255,.06);
+}
+.ticket-header {
+  background: rgba(254,109,19,.12); border-bottom: 1px solid rgba(254,109,19,.2);
+  padding: 36px 44px;
+}
+.ticket-header-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
+}
+.ticket-header-name {
+  font-size: 28px; font-weight: 900; color: var(--white); letter-spacing: -.5px;
+}
+.ticket-header-event {
+  font-size: 13px; color: rgba(255,255,255,.45); font-weight: 600; margin-top: 6px;
+}
+.ticket-body { padding: 40px 44px; }
+.ticket-features { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+.ticket-features li {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8); line-height: 1.4;
+}
+.tick {
+  width: 22px; height: 22px; flex-shrink: 0;
+  background: rgba(254,109,19,.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--orange);
+}
+.ticket-code-row {
+  background: rgba(255,255,255,.04); border: 1px dashed rgba(255,255,255,.15);
+  border-radius: 4px; padding: 18px 22px; margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.ticket-code-label { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.ticket-code-val {
+  font-size: 20px; font-weight: 900; color: var(--orange); letter-spacing: 3px;
+  background: rgba(254,109,19,.1); padding: 6px 16px; border-radius: 3px;
+  border: 1px solid rgba(254,109,19,.25);
+}
+.ticket-code-desc { font-size: 12px; color: rgba(255,255,255,.35); font-weight: 500; margin-top: 8px; }
+.ticket-cta { width: 100%; text-align: center; display: block; padding: 20px; font-size: 14px; }
+.ticket-fine { text-align: center; margin-top: 14px; font-size: 12px; color: var(--muted); font-weight: 500; }
+
+/* ── FAQ ── */
+#faq { background: var(--cream-dk); padding: 100px 0; }
+.faq-tag { color: var(--orange); }
+.faq-h2 { color: var(--navy); margin-bottom: 48px; }
+.faq-list { max-width: 760px; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,.1); }
+.faq-item:first-child { border-top: 1px solid rgba(0,0,0,.1); }
+.faq-btn {
+  width: 100%; background: none; border: none; cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 0; text-align: left;
+}
+.faq-q { font-size: 16px; font-weight: 700; color: var(--navy); letter-spacing: -.2px; line-height: 1.3; }
+.faq-btn:hover .faq-q { color: var(--orange); }
+.faq-icon {
+  flex-shrink: 0; width: 26px; height: 26px;
+  border: 1.5px solid rgba(0,0,0,.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s, border-color .2s, transform .3s; color: var(--navy);
+}
+.faq-item.open .faq-icon { background: var(--orange); border-color: var(--orange); transform: rotate(45deg); color: var(--white); }
+.faq-panel { overflow: hidden; max-height: 0; transition: max-height .4s cubic-bezier(.22,.61,.36,1); }
+.faq-a { padding: 0 0 22px; font-size: 15px; color: #555; line-height: 1.8; font-weight: 400; max-width: 680px; }
+
+/* ── FINAL CTA ── */
+#final-cta {
+  background: var(--navy); padding: 120px 48px; text-align: center;
+  position: relative; overflow: hidden;
+}
+#final-cta::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(254,109,19,.15) 0%, transparent 65%);
+}
+.cta-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(-48deg, transparent, transparent 88px, rgba(255,255,255,.025) 88px, rgba(255,255,255,.025) 89px);
+}
+.cta-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.cta-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; }
+.cta-h2 {
+  font-weight: 900; font-size: clamp(36px, 5vw, 68px);
+  letter-spacing: -2px; line-height: 1; color: var(--white); margin-bottom: 16px;
+}
+.cta-h2 em {
+  font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400;
+  color: var(--orange); display: block; font-size: clamp(30px, 4vw, 58px);
+}
+.cta-sub { font-size: 17px; color: rgba(255,255,255,.5); line-height: 1.75; margin-bottom: 44px; font-weight: 400; }
+.cta-fine { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.3); font-weight: 600; }
+
+/* ── FOOTER ── */
+footer { background: var(--navy-deep); padding: 24px 48px; border-top: 1px solid rgba(255,255,255,.06); }
+.footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,.2); font-weight: 500; }
+.footer-link { font-size: 11px; color: rgba(255,255,255,.25); font-weight: 600; letter-spacing: .5px; transition: color .2s; }
+.footer-link:hover { color: rgba(255,255,255,.65); }
+
+/* ── MOBILE STICKY CTA ── */
+#sticky-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 998;
+  padding: 12px 16px; background: var(--navy-deep);
+  border-top: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 -8px 32px rgba(0,0,0,.4);
+}
+#sticky-cta a { display: block; width: 100%; text-align: center; padding: 16px; border-radius: 2px; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  #hero { padding: 80px 24px 80px; }
+  .featured-wrap { grid-template-columns: 1fr; }
+  .featured-img { height: 360px; }
+  .featured-img::after { background: linear-gradient(to top, rgba(1,8,40,.8) 0%, transparent 60%); }
+  .featured-info { padding: 36px 32px; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .grant-inner { grid-template-columns: 1fr; gap: 48px; }
+  #final-cta { padding: 96px 24px; }
+  footer { padding: 24px; }
+}
+@media(max-width:600px){
+  .hero-meta { gap: 8px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+  .ticket-header { padding: 28px 28px; }
+  .ticket-body { padding: 28px 28px; }
+  #sticky-cta { display: block; }
+  body { padding-bottom: 76px; }
+  .offer-bar-cta { display: none; }
+}
+@media(max-width:400px){
+  .hero-meta-item { font-size: 12px; padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ░░ OFFER BAR ░░ -->
+<div id="offer-bar">
+  <div class="offer-bar-inner">
+    <span class="offer-bar-text">🎉 <strong>First 10 people attend FREE.</strong> After that, use code <span class="offer-code">IMPACT</span> for a discount. Limited slots — claim yours now.</span>
+    <a href="https://amos.selar.com/dialx" target="_blank" class="offer-bar-cta">Claim Free Ticket</a>
+  </div>
+</div>
+
+<!-- ░░ MINIMAL NAV ░░ -->
+<nav id="nav">
+  <a href="/" class="nav-logo"><img src="../assets/DialX-logo-white.svg" alt="DialX"></a>
+  <a href="https://amos.selar.com/dialx" target="_blank" class="nav-cta">Get Ticket</a>
+</nav>
+
+<!-- ░░ HERO ░░ -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>DialX Impact 2026 · Edition 01</span>
+    </div>
+    <h1 class="hero-h1">
+      The Conference for Builders,<br>Creators &amp; Professionals
+      <em>Ideas that work in real life.</em>
+    </h1>
+    <p class="hero-sub">
+      Join hundreds of ambitious people for practical conversations on ideas, execution, leadership, business, technology, media, AI, and creating real-world impact.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="2" width="13" height="12" rx="1.5"/><path d="M5 1v2M10 1v2M1 6h13"/></svg>
+        July 25, 2026
+      </span>
+      <span class="hero-meta-item">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.5 1C5 1 3 3 3 5.5c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5C12 3 10 1 7.5 1z"/><circle cx="7.5" cy="5.5" r="1.5"/></svg>
+        Redemption City, Ogun State
+      </span>
+      <span class="hero-meta-item">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 13v-1a3 3 0 00-3-3H4a3 3 0 00-3 3v1"/><circle cx="5.5" cy="5.5" r="2.5"/><path d="M13 13v-1a3 3 0 00-2-2.83"/><path d="M9.5 2.63a2.5 2.5 0 010 4.74"/></svg>
+        500+ Expected Attendees
+      </span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Your Ticket</a>
+      <a href="#speakers" class="btn-ghost">View Speakers</a>
+    </div>
+    <div class="hero-countdown" aria-label="Countdown to DialX Impact">
+      <div class="cd-item"><span class="cd-num" id="cd-d">--</span><span class="cd-label">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-label">Hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-label">Mins</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-label">Secs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SPEAKERS ░░ -->
+<section id="speakers">
+  <div class="container">
+    <span class="section-tag speakers-tag reveal">Confirmed Speakers</span>
+    <h2 class="section-h2 speakers-h2 reveal rd1">The voices <em>on stage.</em></h2>
+
+    <!-- Featured -->
+    <div class="featured-wrap reveal rd2">
+      <div class="featured-img">
+        <span class="feat-label">Featured Speaker</span>
+        <img src="../assets/Chude%20Jideonwo.png" alt="Chude Jideonwo" loading="eager">
+      </div>
+      <div class="featured-info">
+        <div class="featured-name">Chude Jideonwo</div>
+        <div class="featured-role">Media Entrepreneur, Author &amp; Advocate</div>
+        <p class="featured-desc">One of Africa's most influential voices on identity, culture, and purpose — Chude brings a rare perspective on leadership, media, and the power of authentic storytelling.</p>
+      </div>
+    </div>
+
+    <!-- Other Speakers -->
+    <div class="speakers-grid">
+      <div class="spk-card reveal">
+        <div class="spk-img">
+          <img src="../assets/Seyi%20ogunbiyi.jpg" alt="Seyi Ogunbiyi" loading="lazy">
+          <div class="spk-info"><span class="spk-name">Seyi Ogunbiyi</span></div>
+        </div>
+      </div>
+      <div class="spk-card reveal rd1">
+        <div class="spk-img">
+          <img src="../assets/Oluwatoba.jpg" alt="Oluwatoba Ajayi" loading="lazy">
+          <div class="spk-info"><span class="spk-name">Oluwatoba Ajayi</span></div>
+        </div>
+      </div>
+      <div class="spk-card reveal rd2">
+        <div class="spk-img">
+          <img src="../assets/saint%20agomeze.jpg" alt="Saint Agomeze" loading="lazy">
+          <div class="spk-info"><span class="spk-name">Saint Agomeze</span></div>
+        </div>
+      </div>
+      <div class="spk-card reveal rd3">
+        <div class="spk-img">
+          <img src="../assets/Oluwafemi%20Oyewunmi.jpg" alt="Oyewunmi Oluwafemi" loading="lazy">
+          <div class="spk-info"><span class="spk-name">Oyewunmi Oluwafemi</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="speakers-mid-cta reveal" style="margin-top:48px;">
+      <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Secure Your Seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WHY ATTEND ░░ -->
+<section id="why">
+  <div class="container">
+    <span class="section-tag why-tag reveal">Why Attend</span>
+    <h2 class="section-h2 why-h2 reveal rd1">Six reasons to <em>be there.</em></h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l9-9 9 9"/><path d="M5 9v9a1 1 0 001 1h4v-5h2v5h4a1 1 0 001-1V9"/></svg>
+        </div>
+        <div class="why-title">Learn from experienced leaders</div>
+        <div class="why-desc">Hear directly from founders, operators, and practitioners who have built real things and created measurable impact.</div>
+      </div>
+      <div class="why-card reveal rd1">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 12a5 5 0 11-10 0 5 5 0 0110 0z"/><path d="M17 12c0-5.523-4.477-10-10-10a10 10 0 000 20c5.523 0 10-4.477 10-10z"/></svg>
+        </div>
+        <div class="why-title">Build meaningful connections</div>
+        <div class="why-desc">Meet 500+ builders, creators, entrepreneurs, and professionals who are serious about execution — not just conversation.</div>
+      </div>
+      <div class="why-card reveal rd2">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 2L3 13h8l-2 7 10-11h-8l2-7z"/></svg>
+        </div>
+        <div class="why-title">Practical strategies you can use immediately</div>
+        <div class="why-desc">No theory. Every talk is built around what actually worked — with specific, actionable ideas you take home and apply.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3a4 4 0 010 8"/><path d="M21 20v-2a4 4 0 00-3-3.87"/></svg>
+        </div>
+        <div class="why-title">Access to the Builders Grant</div>
+        <div class="why-desc">Attendees are eligible to apply for the DialX Impact Builders Grant — $1,000 to fund a business, startup, or community project.</div>
+      </div>
+      <div class="why-card reveal rd1">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 14.8l-4.9 2.4.9-5.5L4 7.8l5.5-.8z"/></svg>
+        </div>
+        <div class="why-title">Curated talks across industries</div>
+        <div class="why-desc">Business, tech, media, AI, leadership, creativity — speakers cover the full range of how impact gets made in the real world.</div>
+      </div>
+      <div class="why-card reveal rd2">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><path d="M9 22V12h4v10"/></svg>
+        </div>
+        <div class="why-title">Be part of a growing community</div>
+        <div class="why-desc">DialX Impact is Edition 01 — the start of a movement. Be in the room where it begins and carry that energy forward.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ BUILDERS GRANT ░░ -->
+<section id="grant">
+  <div class="container">
+    <div class="grant-inner">
+      <div class="reveal">
+        <span class="section-tag grant-tag">DialX Impact Builders Grant</span>
+        <h2 class="section-h2 grant-h2">Attend and<br><em>get funded.</em></h2>
+        <div class="grant-amount">$1,000</div>
+        <p class="grant-desc">Conference attendees can apply for the <strong>DialX Impact Builders Grant</strong> — a cash grant to support a business, startup, creative venture, or community initiative. One builder gets funded. That builder could be you.</p>
+        <a href="/grant" class="btn-outline-white">Learn More About the Grant</a>
+      </div>
+      <div class="reveal rd1">
+        <div class="grant-card">
+          <div class="grant-card-title">Grant Eligibility</div>
+          <ul class="grant-features">
+            <li>Purchase a DialX Impact 2026 ticket</li>
+            <li>Attend the event on July 25, 2026</li>
+            <li>Submit a grant application before the deadline</li>
+            <li>Have a business, startup, or community project</li>
+            <li>Present your idea if shortlisted</li>
+            <li>Winner announced at the event</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ TICKET SECTION ░░ -->
+<section id="ticket">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 0;">
+      <span class="section-tag ticket-tag reveal">Get Your Ticket</span>
+      <h2 class="section-h2 ticket-h2 reveal rd1">One ticket.<br><em>Everything included.</em></h2>
+      <p class="ticket-sub reveal rd2">Use code <strong style="color:var(--navy);">IMPACT</strong> at checkout for a discount. First 10 tickets are free.</p>
+    </div>
+    <div class="ticket-wrap reveal rd2">
+      <div class="ticket-card">
+        <div class="ticket-header">
+          <div class="ticket-header-label">Conference Ticket</div>
+          <div class="ticket-header-name">DialX Impact 2026</div>
+          <div class="ticket-header-event">July 25, 2026 · Redemption City, Ogun State</div>
+        </div>
+        <div class="ticket-body">
+          <ul class="ticket-features">
+            <li><span class="tick"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5.5l2.5 3 5.5-6"/></svg></span>Full conference access — all sessions, all speakers</li>
+            <li><span class="tick"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5.5l2.5 3 5.5-6"/></svg></span>Networking with 500+ builders and professionals</li>
+            <li><span class="tick"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5.5l2.5 3 5.5-6"/></svg></span>Eligibility to apply for the $1,000 Builders Grant</li>
+            <li><span class="tick"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5.5l2.5 3 5.5-6"/></svg></span>Access to all sessions and speaker Q&amp;As</li>
+            <li><span class="tick"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5.5l2.5 3 5.5-6"/></svg></span>Conference materials</li>
+          </ul>
+
+          <div>
+            <div class="ticket-code-row">
+              <span class="ticket-code-label">Discount Code</span>
+              <span class="ticket-code-val">IMPACT</span>
+            </div>
+            <p class="ticket-code-desc">Use this code at checkout to receive a discount on your ticket. First 10 purchasers attend free — no code needed.</p>
+          </div>
+
+          <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary ticket-cta" style="margin-top:28px;">Get My Ticket</a>
+        </div>
+      </div>
+      <p class="ticket-fine">Secure, limited availability. Prices may increase as the event approaches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FAQ ░░ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-tag faq-tag reveal">FAQ</span>
+    <h2 class="section-h2 faq-h2 reveal rd1">Common <em>questions.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Who should attend DialX Impact?</span>
+          <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5.5 1v9M1 5.5h9"/></svg></span>
+        </button>
+        <div class="faq-panel"><p class="faq-a">DialX Impact is designed for builders, entrepreneurs, creatives, business owners, and professionals who want practical insights — not just inspiration. If you're serious about execution and real-world impact, this event is for you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Where exactly is the venue?</span>
+          <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5.5 1v9M1 5.5h9"/></svg></span>
+        </button>
+        <div class="faq-panel"><p class="faq-a">DialX Impact 2026 takes place at Redemption City, Ogun State, Nigeria on July 25, 2026. Exact venue address and directions will be shared with all registered attendees closer to the event date.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">What does my ticket include?</span>
+          <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5.5 1v9M1 5.5h9"/></svg></span>
+        </button>
+        <div class="faq-panel"><p class="faq-a">Your ticket gives you full access to all conference sessions and speaker talks, networking opportunities with 500+ attendees, eligibility to apply for the $1,000 Builders Grant, and conference materials on the day.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Can I transfer my ticket to someone else?</span>
+          <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5.5 1v9M1 5.5h9"/></svg></span>
+        </button>
+        <div class="faq-panel"><p class="faq-a">Yes. If you're unable to attend, you can transfer your ticket to another person. Contact us at official.dialx@gmail.com with the new attendee's name and details at least 72 hours before the event.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How do I apply for the Builders Grant?</span>
+          <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5.5 1v9M1 5.5h9"/></svg></span>
+        </button>
+        <div class="faq-panel"><p class="faq-a">The Builders Grant is exclusively open to DialX Impact 2026 ticket holders. Once you have a ticket, visit <a href="/grantform" style="color:var(--orange);">dialxafrica.com/grantform</a> to submit your application. One builder will receive $1,000 to fund their project, with the winner announced at the event.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FINAL CTA ░░ -->
+<section id="final-cta">
+  <div class="cta-lines"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">Don't miss it.</p>
+    <h2 class="cta-h2 reveal rd1">
+      Don't Just Watch<br>Others Build.
+      <em>Join Them.</em>
+    </h2>
+    <p class="cta-sub reveal rd2">Secure your ticket today and join founders, creators, professionals, and business owners for one of the most practical conferences of the year.</p>
+    <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary reveal rd3">Get My Ticket Now</a>
+    <p class="cta-fine reveal rd4">Use code IMPACT for a discount · First 10 tickets FREE · July 25, 2026</p>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-link">← DialX Main Site</a>
+    <span class="footer-copy">© 2026 DialX. All rights reserved.</span>
+    <a href="mailto:official.dialx@gmail.com" class="footer-link">official.dialx@gmail.com</a>
+  </div>
+</footer>
+
+<!-- ░░ MOBILE STICKY CTA ░░ -->
+<div id="sticky-cta">
+  <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get My Ticket — Use Code IMPACT</a>
+</div>
+
+<script>
+/* Countdown */
+(function() {
+  var EVENT = new Date('2026-07-25T00:00:00+01:00').getTime();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    var diff = EVENT - Date.now();
+    if(diff <= 0){ document.getElementById('cd-d').textContent = document.getElementById('cd-h').textContent = document.getElementById('cd-m').textContent = document.getElementById('cd-s').textContent = '00'; return; }
+    document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+    document.getElementById('cd-h').textContent = pad(Math.floor((diff%86400000)/3600000));
+    document.getElementById('cd-m').textContent = pad(Math.floor((diff%3600000)/60000));
+    document.getElementById('cd-s').textContent = pad(Math.floor((diff%60000)/1000));
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* Scroll reveal */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('up'); ro.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  });
+});
+
+/* FAQ */
+document.querySelectorAll('.faq-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq-item');
+    var panel = item.querySelector('.faq-panel');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-panel').style.maxHeight = '0';
+      o.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>
