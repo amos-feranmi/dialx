@@ -17,12 +17,17 @@
   --line-light: rgba(255,255,255,0.1);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+/* overflow-x on html AND body — iOS Safari ignores it on body alone,
+   letting the page pan sideways. clip > hidden where supported. */
+html {
+  scroll-behavior: smooth; font-size: 16px;
+  overflow-x: hidden; overflow-x: clip;
+}
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--cream);
   color: var(--ink);
-  overflow-x: hidden;
+  overflow-x: hidden; overflow-x: clip;
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -637,58 +642,130 @@ a { color: inherit; text-decoration: none; }
 }
 .speakers-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  /* minmax(0,1fr): plain 1fr can't shrink below content min-width —
+     long unbreakable names would blow the grid past the viewport */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
   position: relative; z-index: 1;
 }
+/* ── Flip card: front = photo + caption, back = scrollable bio (click to flip) ── */
 .speaker-card {
-  display: flex; flex-direction: column;
-  cursor: default;
+  perspective: 1400px;
+  cursor: pointer;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1);
+}
+.speaker-card-inner {
+  position: relative; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.speaker-card.flipped .speaker-card-inner { transform: rotateY(180deg); }
+.speaker-front {
+  display: flex; flex-direction: column; height: 100%;
+  border-radius: 8px; overflow: hidden;
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,.08);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: box-shadow .35s, border-color .35s;
 }
 .speaker-img-wrap {
-  width: 100%; aspect-ratio: 3/4;
-  border-radius: 6px; overflow: hidden;
+  width: 100%; aspect-ratio: 4/5;
+  position: relative; overflow: hidden;
   background: var(--navy-mid);
-  position: relative;
-  border: 1px solid rgba(255,255,255,.08);
-  transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
-}
-.speaker-card:hover .speaker-img-wrap {
-  transform: translateY(-8px);
-  box-shadow: 0 28px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(254,109,19,.3);
-}
-/* Duotone tint — unifies the mixed source photos into one brand-consistent set.
-   mix-blend-mode:color keeps the photo's luminance but recolors it warm→navy. */
-.speaker-img-wrap::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(158deg, #ff8c42 0%, #FE6D13 26%, #021157 78%, #010B2E 100%);
-  mix-blend-mode: color;
-  opacity: .9;
-  transition: opacity .45s cubic-bezier(.22,.61,.36,1);
-}
-.speaker-card:hover .speaker-img-wrap::before { opacity: 0; }
-.speaker-img-wrap::after {
-  content: '';
-  position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(to top, rgba(1,8,40,.92) 0%, rgba(1,11,46,.3) 45%, transparent 70%);
 }
 .speaker-img-wrap img {
   width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
-  filter: grayscale(1) contrast(1.06) brightness(.98);
+  filter: grayscale(.55) contrast(1.05);
   transition: transform .5s cubic-bezier(.22,.61,.36,1), filter .45s cubic-bezier(.22,.61,.36,1);
 }
-.speaker-card:hover .speaker-img-wrap img {
-  transform: scale(1.06);
-  filter: grayscale(0) contrast(1) brightness(1);
+/* Refined duotone wash — light, luminance-preserving recolor, warm→navy */
+.speaker-img-wrap::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(160deg, var(--orange-hi) 0%, var(--orange) 30%, var(--navy-mid) 82%, var(--navy) 100%);
+  mix-blend-mode: color;
+  opacity: .2;
+  transition: opacity .45s cubic-bezier(.22,.61,.36,1);
 }
-.speaker-info {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 18px 16px 16px; z-index: 3;
+/* Soft navy floor so the caption zone stays quiet */
+.speaker-img-wrap::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 2; pointer-events: none;
+  background: linear-gradient(to top, rgba(1,8,40,.55) 0%, transparent 100%);
+}
+/* Caption: always visible, below the photo — 1- or 2-line roles never clip */
+.speaker-caption {
+  flex: 1; display: flex; flex-direction: column; gap: 7px;
+  padding: 16px 16px 14px;
+  background: rgba(255,255,255,.03);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.speaker-rule {
+  width: 22px; height: 2px; background: var(--orange);
+  transition: width .35s cubic-bezier(.22,.61,.36,1);
 }
 .speaker-name {
-  font-size: 13px; font-weight: 800; color: var(--white);
-  letter-spacing: .1px; line-height: 1.25;
+  font-size: 16px; font-weight: 800; color: var(--white);
+  letter-spacing: -.2px; line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.speaker-role {
+  font-size: 12.5px; font-weight: 600; line-height: 1.55;
+  color: rgba(255,255,255,.55); transition: color .35s;
+}
+.speaker-bio-btn {
+  margin-top: auto; align-self: flex-start; padding: 8px 0 0;
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+}
+.speaker-back {
+  position: absolute; inset: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 8px; overflow-y: auto;
+  background: var(--navy-mid);
+  border: 1px solid rgba(254,109,19,.3);
+  padding: 22px 20px;
+  scrollbar-width: thin;
+  display: flex; flex-direction: column;
+}
+.speaker-back-close {
+  position: absolute; top: 10px; right: 12px;
+  background: none; border: none; cursor: pointer;
+  font-size: 22px; line-height: 1; color: rgba(255,255,255,.5);
+}
+/* margin:auto pair centers the bio block vertically when short,
+   but stays scroll-safe when a long bio overflows the card */
+.speaker-back-name {
+  font-size: 15px; font-weight: 800; color: var(--orange);
+  margin: auto 0 10px; padding-right: 24px;
+}
+.speaker-bio { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.78); margin-bottom: auto; }
+/* Hover enhancement — pointer devices only; content never depends on it */
+@media (hover: hover) {
+  .speaker-card:hover { transform: translateY(-8px); }
+  .speaker-card:hover .speaker-front {
+    box-shadow: 0 28px 60px rgba(0,0,0,.55);
+    border-color: rgba(254,109,19,.35);
+  }
+  .speaker-card:hover .speaker-img-wrap img {
+    transform: scale(1.05);
+    filter: grayscale(.1) contrast(1.02) brightness(1.02);
+  }
+  .speaker-card:hover .speaker-img-wrap::before { opacity: 0; }
+  .speaker-card:hover .speaker-role { color: rgba(255,255,255,.85); }
+  .speaker-card:hover .speaker-rule { width: 44px; }
+}
+/* Touch devices render the revealed state by default — nothing hidden behind hover */
+@media (hover: none) {
+  .speaker-img-wrap img { filter: grayscale(.1) contrast(1.02); }
+  .speaker-img-wrap::before { opacity: 0; }
+  .speaker-role { color: rgba(255,255,255,.85); }
+  .speaker-rule { width: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .speaker-card, .speaker-card-inner { transition: none; }
 }
 .speakers-more {
   margin-top: 56px; text-align: center; position: relative; z-index: 1;
@@ -696,8 +773,14 @@ a { color: inherit; text-decoration: none; }
 }
 .speakers-more a { color: var(--orange); transition: opacity .2s; }
 .speakers-more a:hover { opacity: .75; }
-@media(max-width:900px){ .speakers-grid { grid-template-columns: repeat(3,1fr); } }
-@media(max-width:520px){ .speakers-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:640px){
+  .speakers-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+  .speaker-caption { padding: 12px 12px 11px; gap: 5px; }
+  .speaker-name { font-size: 13.5px; }
+  .speaker-role { font-size: 11px; }
+  .speaker-back { padding: 16px 14px; }
+  .speaker-bio { font-size: 12px; line-height: 1.6; }
+}
 
 /* ═══════════════════════════════
    WHO IT'S FOR
