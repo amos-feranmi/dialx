@@ -813,12 +813,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ── Flash Sale Algorithm ──
    Cycle: 1 hour ON → 2 hours OFF → repeat for 24 hours.
-   8 flash windows total. All visitors see the same state (globally synced).
-   To restart the campaign, update CAMPAIGN_START to a new UTC timestamp.
+   Start time is stored in sessionStorage on first load so the banner
+   is immediately live and stays in sync across page reloads.
+   To reset the campaign, clear sessionStorage key 'dialx_flash_start'.
 ── */
 (function() {
-  // ↓ Campaign anchor — change this to reset (UTC ISO string)
-  var CAMPAIGN_START = new Date('2026-07-12T10:00:00Z').getTime();
+  var KEY = 'dialx_flash_start';
+  var stored = sessionStorage.getItem(KEY);
+  var CAMPAIGN_START = stored ? parseInt(stored, 10) : Date.now();
+  if (!stored) sessionStorage.setItem(KEY, CAMPAIGN_START);
   var CAMPAIGN_DURATION = 24 * 60 * 60 * 1000; // 24 hours
   var CYCLE            =  3 * 60 * 60 * 1000;  // 3-hour cycle (1 on + 2 off)
   var FLASH_ON         =  1 * 60 * 60 * 1000;  // 1 hour on
