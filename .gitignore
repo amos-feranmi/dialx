@@ -1,0 +1,7 @@
+# Local dev / preview config (not part of the site)
+.claude/launch.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
