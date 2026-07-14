@@ -822,7 +822,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   var stored = sessionStorage.getItem(KEY);
   var CAMPAIGN_START = stored ? parseInt(stored, 10) : Date.now();
   if (!stored) sessionStorage.setItem(KEY, CAMPAIGN_START);
-  var CAMPAIGN_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+  var CAMPAIGN_END = new Date('2026-07-25T00:00:00+01:00').getTime(); // event day WAT
   var CYCLE            =  3 * 60 * 60 * 1000;  // 3-hour cycle (1 on + 2 off)
   var FLASH_ON         =  1 * 60 * 60 * 1000;  // 1 hour on
 
@@ -834,8 +834,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     var now     = Date.now();
     var elapsed = now - CAMPAIGN_START;
 
-    // Outside the 24-hour campaign window — banner stays hidden
-    if (elapsed < 0 || elapsed >= CAMPAIGN_DURATION) {
+    // Outside the campaign window — banner stays hidden
+    if (elapsed < 0 || now >= CAMPAIGN_END) {
       banner.classList.remove('flash-on');
       document.body.classList.remove('flash-active');
       return;
