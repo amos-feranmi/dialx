@@ -126,8 +126,25 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-inner {
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 420px;
-  gap: 80px; align-items: end;
+  display: grid; grid-template-columns: 320px 1fr 380px;
+  gap: 64px; align-items: end;
+}
+.hero-portrait {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  border-radius: 2px; position: relative;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.hero-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+}
+.hero-portrait::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(1,11,46,.6) 0%, transparent 50%);
+  pointer-events: none;
 }
 .hero-eyebrow {
   font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
@@ -171,9 +188,14 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px; font-weight: 600; letter-spacing: .5px;
   color: rgba(255,255,255,.3);
 }
+@media(max-width:1100px){
+  .hero-inner { grid-template-columns: 260px 1fr; gap: 48px; }
+  .hero-right { display: none; }
+}
 @media(max-width:900px){
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-right { padding-bottom: 0; }
+  .hero-portrait { aspect-ratio: 4/3; max-height: 360px; }
+  .hero-right { display: block; padding-bottom: 0; }
   .hero-bg-name { font-size: 120px; }
 }
 @media(max-width:600px){ .container { padding: 0 24px; } #hero { padding: 120px 0 72px; } }
@@ -379,6 +401,9 @@ footer {
 
   <div class="container">
     <div class="hero-inner">
+      <div class="hero-portrait">
+        <img src="amos-picture.jpg" alt="Amos Feranmi">
+      </div>
       <div class="hero-left">
         <div class="hero-eyebrow">Meet the Pioneer</div>
         <h1 class="hero-name">Amos<br>Feranmi</h1>
