@@ -431,8 +431,20 @@ img{display:block;max-width:100%;}
   var downloadBtn = document.getElementById('download');
   var canvasHint = document.getElementById('canvasHint');
 
+  function setStatus(msg, isError){
+    filename.textContent = msg || '';
+    filename.style.color = isError ? '#ff9d6b' : 'rgba(255,255,255,.5)';
+  }
+
   function loadFile(f){
-    if(!f || !/^image\//.test(f.type)){ toast('Please choose an image file.'); return; }
+    if(!f) return;
+    // Accept anything that looks like an image. Phone photos often arrive with an
+    // empty MIME type (Android) or as HEIC (iPhone), so don't reject on type alone.
+    var typeOk = !f.type || /^image\//i.test(f.type);
+    var extOk  = /\.(jpe?g|png|gif|webp|bmp|heic|heif|avif)$/i.test(f.name || '');
+    if(!typeOk && !extOk){ setStatus("That doesn't look like an image — please choose a JPG or PNG.", true); return; }
+
+    setStatus('Loading “' + (f.name || 'photo') + '”…', false);
     var url = URL.createObjectURL(f);
     var im = new Image();
     im.onload = function(){
@@ -440,16 +452,24 @@ img{display:block;max-width:100%;}
       document.getElementById('zoom').value = 100;
       zoomField.style.display = '';
       downloadBtn.disabled = false;
-      filename.textContent = f.name;
+      setStatus(f.name || 'Photo added', false);
       canvasHint.classList.remove('hide');
       URL.revokeObjectURL(url);
       render();
     };
-    im.onerror = function(){ toast("Couldn't read that image."); URL.revokeObjectURL(url); };
+    im.onerror = function(){
+      URL.revokeObjectURL(url);
+      setStatus("Couldn't open that photo. If it's an iPhone HEIC image, upload a JPG/PNG — or take a screenshot of the photo and upload that.", true);
+    };
     im.src = url;
   }
 
-  fileInput.addEventListener('change', function(e){ if(e.target.files[0]) loadFile(e.target.files[0]); });
+  fileInput.addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0];
+    if(f) loadFile(f);
+    // reset so picking the SAME file again still fires 'change'
+    e.target.value = '';
+  });
   ['dragenter','dragover'].forEach(function(ev){ drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('drag');});});
   ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('drag');});});
   drop.addEventListener('drop', function(e){ if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
