@@ -87,6 +87,13 @@ a { color: inherit; text-decoration: none; }
   background: var(--orange-hi); transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(254,109,19,.3);
 }
+.btn-closed {
+  display: inline-block; padding: 16px 44px;
+  background: rgba(255,255,255,.06); color: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.16);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px; cursor: default;
+}
 .btn-outline-white {
   display: inline-block; padding: 14px 40px;
   border: 2px solid rgba(255,255,255,.4); color: var(--white);
@@ -485,7 +492,7 @@ footer {
 <div class="nav-mobile" id="mobileNav">
   <a href="../">← Main Site</a>
   <a href="https://amos.selar.com/dialx" target="_blank" style="color:var(--orange)">Get Tickets</a>
-  <a href="#apply" class="mob-apply">Apply for Funding</a>
+  <span class="mob-apply" style="color:rgba(255,255,255,.4)">Applications Closed</span>
 </div>
 
 <!-- ░░ HERO ░░ -->
@@ -498,7 +505,7 @@ footer {
     <div class="hero-inner">
       <div class="grant-badge">
         <span class="dot"></span>
-        <span>DialX Impact Builders Grant · 2026</span>
+        <span>Applications Closed · Winner announced at DialX Impact 2026</span>
       </div>
 
       <h1 class="hero-h1">
@@ -507,17 +514,17 @@ footer {
       </h1>
 
       <p class="hero-sub">
-        One builder receives a $1,000 cash grant to accelerate their business, project, or idea.
+        Applications for the DialX Impact Builders Grant are now closed. Thank you to everyone who applied — one builder receives a $1,000 cash grant to accelerate their business, project, or idea.
       </p>
 
       <div class="hero-actions">
         <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
-        <a href="/grantform" class="btn-outline-white">Apply for Funding</a>
+        <span class="btn-closed" aria-disabled="true">Applications Closed</span>
       </div>
 
       <div class="hero-note">
         <div class="hero-note-line"></div>
-        <span>Open to anyone actively building · Winner announced July 25, 2026</span>
+        <span>The selected builder will be announced at DialX Impact 2026</span>
       </div>
     </div>
   </div>
@@ -653,15 +660,15 @@ footer {
   <div class="cta-lines"></div>
   <div class="container">
     <div class="final-cta-inner">
-      <p class="final-cta-eyebrow reveal">Ready to Apply?</p>
-      <h2 class="final-cta-heading reveal reveal-d1">Get in<br>the room.</h2>
-      <p class="final-cta-sub reveal reveal-d2">Open to anyone who is building something real.</p>
+      <p class="final-cta-eyebrow reveal">Applications Closed</p>
+      <h2 class="final-cta-heading reveal reveal-d1">Thank you<br>for applying.</h2>
+      <p class="final-cta-sub reveal reveal-d2">Grant applications are now closed.</p>
       <p class="final-cta-body reveal reveal-d2">
-        Apply now and our team will review your submission. If you make the next stage, we'll contact you directly. <strong>The grant goes to people already building.</strong>
+        Applications for the DialX Impact Builders Grant have closed. <strong>The selected builder will be announced at DialX Impact 2026.</strong> Don't miss it — secure your ticket to be in the room.
       </p>
       <div class="final-cta-buttons reveal reveal-d3">
-        <a href="/grantform" class="btn-primary">Apply for Funding</a>
-        <a href="/gettickets" class="btn-outline-white">Get Tickets</a>
+        <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
+        <span class="btn-closed" aria-disabled="true">Applications Closed</span>
       </div>
       <p class="final-cta-note reveal">DialX Impact · July 25th, 2026 · Redemption City, Nigeria</p>
     </div>
