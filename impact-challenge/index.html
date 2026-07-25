@@ -117,6 +117,21 @@ img { display: block; max-width: 100%; }
   background: var(--orange-hi); transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(254,109,19,.35);
 }
+.btn-closed {
+  display: inline-block; padding: 16px 40px;
+  background: rgba(255,255,255,.06); color: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.16);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 2px; cursor: default;
+}
+.btn-closed-dark {
+  background: rgba(1,11,46,.04); color: var(--muted);
+  border-color: rgba(1,11,46,.15);
+}
+.hero-cta .btn-primary { margin-left: 16px; }
+@media(max-width:600px){
+  .hero-cta .btn-primary { margin-left: 0; margin-top: 14px; }
+}
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -208,24 +223,25 @@ footer { background: var(--navy-deep, #000820); }
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="dot"></span>
-      <span>DialX Impact · July 25, 2026</span>
+      <span>Entries Closed · Winners announced at DialX Impact 2026</span>
     </div>
     <h1 class="hero-h1">
       Impact<br>
       <em>Challenge.</em>
     </h1>
     <p class="hero-desc">
-      Share how you're creating impact — in your work, community, or everyday life. Post your story, follow the steps below, and win prizes.
+      Entries for the DialX Impact Challenge are now <strong style="color:#fff;">closed</strong>. Thank you to everyone who shared their story — winners will be announced live at DialX Impact 2026.
     </p>
     <div class="hero-cta">
-      <a href="#enter" class="btn-primary">How to Enter</a>
+      <span class="btn-closed" aria-disabled="true">Entries Closed</span>
+      <a href="https://amos.selar.com/dialx" target="_blank" class="btn-primary">Get Tickets</a>
     </div>
   </div>
 </section>
 
 <section id="enter">
   <div class="enter-inner">
-    <span class="enter-tag">How to Enter</span>
+    <span class="enter-tag">How It Worked</span>
     <h2 class="enter-h2">Five simple <em>steps.</em></h2>
 
     <ol class="enter-list">
@@ -262,8 +278,8 @@ footer { background: var(--navy-deep, #000820); }
     </ol>
 
     <div class="enter-btn">
-      <a href="https://www.instagram.com/dialxafrica" target="_blank" class="btn-primary">Enter on Instagram</a>
-      <p class="enter-fine">Deadline: July 20, 2026 · Prizes announced at the event · Multiple entries allowed.</p>
+      <span class="btn-closed btn-closed-dark" aria-disabled="true">Entries Closed</span>
+      <p class="enter-fine">Entries closed on July 20, 2026. Thank you to everyone who took part — winners will be announced at DialX Impact 2026.</p>
     </div>
   </div>
 </section>
