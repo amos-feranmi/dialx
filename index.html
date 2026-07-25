@@ -58,78 +58,8 @@ src="https://www.facebook.com/tr?id=1330182245677923&ev=PageView&noscript=1"
 
 <link rel="stylesheet" href="styles.css">
 
-<!-- Flash sale banner styles -->
-<style>
-#flash-banner {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
-  background: linear-gradient(90deg, #d45500 0%, #FE6D13 55%, #ff8c42 100%);
-  height: 46px;
-  display: flex; align-items: center; justify-content: center;
-  transform: translateY(-100%);
-  transition: transform .4s cubic-bezier(.22,.61,.36,1);
-  pointer-events: none;
-}
-#flash-banner.flash-on {
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.flash-inner {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  padding: 0 16px; justify-content: center;
-}
-.flash-pulse {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #fff; flex-shrink: 0;
-  animation: fpulse 1.4s ease-in-out infinite;
-}
-@keyframes fpulse {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: .55; transform: scale(.75); }
-}
-.flash-label {
-  font-size: 12.5px; font-weight: 700; color: #fff;
-  letter-spacing: .2px; white-space: nowrap;
-}
-.flash-label strong { font-weight: 900; }
-.flash-cta {
-  display: inline-block;
-  background: rgba(0,0,0,.28); color: #fff;
-  font-size: 11px; font-weight: 900; letter-spacing: 1.5px;
-  text-transform: uppercase; padding: 5px 16px; border-radius: 2px;
-  white-space: nowrap; transition: background .15s;
-  text-decoration: none;
-}
-.flash-cta:hover { background: rgba(0,0,0,.45); }
-.flash-timer {
-  font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,.85);
-  white-space: nowrap;
-  display: flex; align-items: center; gap: 5px;
-}
-.flash-timer-num {
-  font-size: 13px; font-weight: 900; color: #fff;
-  font-variant-numeric: tabular-nums; letter-spacing: -.3px;
-}
-/* push nav down when banner is showing */
-body.flash-active #nav { top: 46px; }
-body.flash-active #mobileNav { top: 112px; } /* nav height + banner */
-@media(max-width:600px){
-  .flash-label { font-size: 11.5px; }
-  .flash-timer { display: none; }
-}
-</style>
-
 </head>
 <body>
-
-<!-- ░░ FLASH SALE BANNER ░░ -->
-<div id="flash-banner" role="banner" aria-label="Flash sale">
-  <div class="flash-inner">
-    <span class="flash-pulse"></span>
-    <span class="flash-label">🔥 <strong>Flash Sale:</strong> First 10 tickets are FREE</span>
-    <a href="https://amos.selar.com/r9146jz23u" target="_blank" rel="noopener" class="flash-cta">Claim Free Ticket</a>
-    <span class="flash-timer">Ends in <span class="flash-timer-num" id="flash-cd">--:--</span></span>
-  </div>
-</div>
 
 <!-- ░░ NAVIGATION ░░ -->
 <nav id="nav">
@@ -852,57 +782,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
-
-/* ── Flash Sale Algorithm ──
-   Cycle: 1 hour ON → 2 hours OFF → repeat for 24 hours.
-   Start time is stored in sessionStorage on first load so the banner
-   is immediately live and stays in sync across page reloads.
-   To reset the campaign, clear sessionStorage key 'dialx_flash_start'.
-── */
-(function() {
-  var KEY = 'dialx_flash_start';
-  var stored = sessionStorage.getItem(KEY);
-  var CAMPAIGN_START = stored ? parseInt(stored, 10) : Date.now();
-  if (!stored) sessionStorage.setItem(KEY, CAMPAIGN_START);
-  var CAMPAIGN_END = new Date('2026-07-25T00:00:00+01:00').getTime(); // event day WAT
-  var CYCLE            =  3 * 60 * 60 * 1000;  // 3-hour cycle (1 on + 2 off)
-  var FLASH_ON         =  1 * 60 * 60 * 1000;  // 1 hour on
-
-  var banner = document.getElementById('flash-banner');
-  var cdEl   = document.getElementById('flash-cd');
-  var pad    = function(n){ return String(n).padStart(2,'0'); };
-
-  function tick() {
-    var now     = Date.now();
-    var elapsed = now - CAMPAIGN_START;
-
-    // Outside the campaign window — banner stays hidden
-    if (elapsed < 0 || now >= CAMPAIGN_END) {
-      banner.classList.remove('flash-on');
-      document.body.classList.remove('flash-active');
-      return;
-    }
-
-    var phase = elapsed % CYCLE;
-
-    if (phase < FLASH_ON) {
-      // Flash sale is LIVE
-      var remaining = FLASH_ON - phase;
-      var mins = Math.floor(remaining / 60000);
-      var secs = Math.floor((remaining % 60000) / 1000);
-      cdEl.textContent = pad(mins) + ':' + pad(secs);
-      banner.classList.add('flash-on');
-      document.body.classList.add('flash-active');
-    } else {
-      // Quiet period between flash windows
-      banner.classList.remove('flash-on');
-      document.body.classList.remove('flash-active');
-    }
-  }
-
-  tick();
-  setInterval(tick, 1000);
-})();
 
 /* ── Countdown to July 25, 2026 (WAT UTC+1) ── */
 (function() {
