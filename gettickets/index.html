@@ -291,33 +291,6 @@ a { color: inherit; text-decoration: none; }
 .hero-fact-text b { font-size: 14px; font-weight: 800; color: var(--white); letter-spacing: -.2px; }
 .hero-fact-text span { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.45); }
 
-.hero-countdown {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  margin-top: 36px;
-  opacity: 0; animation: heroIn .8s .6s forwards;
-}
-.countdown-item {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  min-width: 60px;
-}
-.countdown-num {
-  font-size: clamp(32px, 5vw, 50px);
-  font-weight: 900; letter-spacing: -2px; line-height: 1;
-  color: var(--white); font-variant-numeric: tabular-nums;
-}
-.countdown-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--orange);
-}
-.countdown-sep {
-  font-size: clamp(26px, 4vw, 40px); font-weight: 900;
-  color: rgba(255,255,255,.25); line-height: 1; margin-bottom: 18px;
-}
-@media(max-width:480px){
-  .countdown-num { font-size: 30px; }
-  .countdown-item { min-width: 50px; }
-  .countdown-sep { font-size: 22px; }
-}
 .hero-actions {
   margin-top: 42px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
   opacity: 0; animation: heroIn .8s .75s forwards;
@@ -498,7 +471,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.6;
 }
 .speakers-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 20px; position: relative; z-index: 1;
 }
 .speaker-card { display: flex; flex-direction: column; cursor: default; }
@@ -530,12 +503,17 @@ a { color: inherit; text-decoration: none; }
   font-size: 13px; font-weight: 800; color: var(--white);
   letter-spacing: .1px; line-height: 1.25;
 }
+.speaker-role {
+  font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,.5);
+  letter-spacing: .2px; line-height: 1.4; margin-top: 3px;
+}
 .speakers-more {
   margin-top: 48px; text-align: center; position: relative; z-index: 1;
   font-size: 14px; color: rgba(255,255,255,.4); font-weight: 600;
 }
 .speakers-more a { color: var(--orange); }
-@media(max-width:900px){ .speakers-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:1100px){ .speakers-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:700px){ .speakers-grid { grid-template-columns: repeat(2,1fr); } }
 @media(max-width:420px){ .speakers-grid { grid-template-columns: repeat(2,1fr); gap: 14px; } }
 
 /* ═══════════════════════════════
@@ -835,17 +813,7 @@ footer { background: var(--navy-deep); padding: 56px 0 40px; }
       </div>
     </div>
 
-    <div class="hero-countdown" aria-label="Countdown to DialX Impact 2026">
-      <div class="countdown-item"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">Days</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">Hours</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">Mins</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">Secs</span></div>
-    </div>
-
-    <div class="hero-actions">
+<div class="hero-actions">
       <a href="https://amos.selar.com/dialx" target="_blank" rel="noopener" class="btn-primary lg js-ticket">Get Ticket</a>
       <span class="hero-note">🔥 <b>First 10 tickets are FREE</b> — going fast.</span>
     </div>
@@ -894,7 +862,7 @@ footer { background: var(--navy-deep); padding: 56px 0 40px; }
     <div class="featured-card reveal reveal-d1">
       <div class="featured-img-wrap">
         <span class="featured-badge">★ Featured Speaker</span>
-        <img src="../assets/Chude%20Jideonwo.png" alt="Chude Jideonwo" loading="lazy">
+        <img src="../assets/speakers/chude/Chude_Jideonwo.jpeg" alt="Chude Jideonwo" loading="lazy">
       </div>
       <div class="featured-body">
         <h3 class="featured-name">Chude Jideonwo</h3>
@@ -917,30 +885,51 @@ footer { background: var(--navy-deep); padding: 56px 0 40px; }
     <div class="speakers-grid">
       <div class="speaker-card reveal">
         <div class="speaker-img-wrap">
-          <img src="../assets/Seyi%20ogunbiyi.jpg" alt="Seyi Ogunbiyi" loading="lazy">
-          <div class="speaker-info"><h3 class="speaker-name">Seyi Ogunbiyi</h3></div>
+          <img src="../assets/speakers/moromoluwatiketike/Moromoluwatiketike.jpeg" alt="Moromoluwatiketike" loading="lazy">
+          <div class="speaker-info">
+            <h3 class="speaker-name">Moromoluwatiketike</h3>
+            <p class="speaker-role">Content Creator &amp; Producer · Convener, Creators Nexus</p>
+          </div>
         </div>
       </div>
       <div class="speaker-card reveal reveal-d1">
         <div class="speaker-img-wrap">
-          <img src="../assets/Oluwatoba.jpg" alt="Oluwatoba Ajayi" loading="lazy">
-          <div class="speaker-info"><h3 class="speaker-name">Oluwatoba Ajayi</h3></div>
+          <img src="../assets/speakers/ajayi/Ajayi_Oluwatoba.jpeg" alt="Oluwatoba Ajayi" loading="lazy">
+          <div class="speaker-info">
+            <h3 class="speaker-name">Oluwatoba Ajayi</h3>
+            <p class="speaker-role">Co-founder &amp; CEO, Health Pal</p>
+          </div>
         </div>
       </div>
       <div class="speaker-card reveal reveal-d2">
         <div class="speaker-img-wrap">
-          <img src="../assets/saint%20agomeze.jpg" alt="Saint Agomeze" loading="lazy">
-          <div class="speaker-info"><h3 class="speaker-name">Saint Agomeze</h3></div>
+          <img src="../assets/speakers/saint/Saint_Agomeze.jpeg" alt="Saint Agomeze" loading="lazy">
+          <div class="speaker-info">
+            <h3 class="speaker-name">Saint Agomeze</h3>
+            <p class="speaker-role">Founder, GiNN (Gen Z's Involvement in a New Nigeria)</p>
+          </div>
         </div>
       </div>
       <div class="speaker-card reveal reveal-d3">
         <div class="speaker-img-wrap">
-          <img src="../assets/Oluwafemi%20Oyewunmi.jpg" alt="Oyewunmi Oluwafemi" loading="lazy">
-          <div class="speaker-info"><h3 class="speaker-name">Oyewunmi Oluwafemi</h3></div>
+          <img src="../assets/speakers/oluwanifemi/Oluwanifemi_Oyewunmi.jpeg" alt="Oluwafemi Oyewunmi" loading="lazy">
+          <div class="speaker-info">
+            <h3 class="speaker-name">Oluwafemi Oyewunmi</h3>
+            <p class="speaker-role">Founder, School of Wealth NG</p>
+          </div>
+        </div>
+      </div>
+      <div class="speaker-card reveal reveal-d1">
+        <div class="speaker-img-wrap">
+          <img src="../assets/speakers/seyiOguniyi/Seyi_William-Ogubiyi.jpeg" alt="Seyi William-Ogunbiyi" loading="lazy">
+          <div class="speaker-info">
+            <h3 class="speaker-name">Seyi William-Ogunbiyi</h3>
+            <p class="speaker-role">Chief Operating Officer, Selar</p>
+          </div>
         </div>
       </div>
     </div>
-    <p class="speakers-more reveal">More speakers to be announced. <a href="https://amos.selar.com/dialx" target="_blank" rel="noopener" class="js-ticket">Secure your seat →</a></p>
+    <p class="speakers-more reveal"><a href="https://amos.selar.com/dialx" target="_blank" rel="noopener" class="js-ticket">Secure your seat →</a></p>
   </div>
 </section>
 
@@ -1127,26 +1116,6 @@ document.querySelectorAll('.js-ticket').forEach(function (el) {
   });
 });
 
-/* ── Countdown to July 25, 2026 (WAT UTC+1) ── */
-(function () {
-  var EVENT = new Date('2026-07-25T00:00:00+01:00').getTime();
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function tick() {
-    var diff = EVENT - Date.now();
-    if (diff <= 0) {
-      ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(function (id) {
-        document.getElementById(id).textContent = '00';
-      });
-      return;
-    }
-    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
-    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
-    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
 </script>
 </body>
 </html>
