@@ -192,7 +192,7 @@ img{display:block;max-width:100%;}
         <label class="drop" id="drop">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
           <b>Tap to upload your photo</b>
-          <span>JPG or PNG · a clear headshot works best</span>
+          <span>JPG, PNG or iPhone (HEIC) · a clear headshot works best</span>
           <input type="file" id="file" accept="image/*">
         </label>
         <p class="filename" id="filename"></p>
@@ -436,6 +436,34 @@ img{display:block;max-width:100%;}
     filename.style.color = isError ? '#ff9d6b' : 'rgba(255,255,255,.5)';
   }
 
+  // ---- HEIC/HEIF support (iPhone photos) ----
+  // Browsers can't decode HEIC natively, so lazily load the heic2any library
+  // (vendored, ~1.3MB) only when a HEIC/HEIF file is actually selected.
+  function isHeic(f){
+    return /image\/hei[cf]/i.test(f.type || '') || /\.(heic|heif)$/i.test(f.name || '');
+  }
+  var heicLoading = null;
+  function ensureHeicLib(){
+    if(window.heic2any) return Promise.resolve();
+    if(heicLoading) return heicLoading;
+    heicLoading = new Promise(function(resolve, reject){
+      var s = document.createElement('script');
+      s.src = '/attending/vendor/heic2any.min.js';
+      s.onload = function(){ resolve(); };
+      s.onerror = function(){ heicLoading = null; reject(new Error('heic lib failed to load')); };
+      document.head.appendChild(s);
+    });
+    return heicLoading;
+  }
+  function convertHeic(f){
+    setStatus('Converting your iPhone photo… this can take a few seconds.', false);
+    return ensureHeicLib().then(function(){
+      return window.heic2any({ blob: f, toType: 'image/jpeg', quality: 0.92 });
+    }).then(function(out){
+      return Array.isArray(out) ? out[0] : out;
+    });
+  }
+
   function loadFile(f){
     if(!f) return;
     // Accept anything that looks like an image. Phone photos often arrive with an
@@ -444,22 +472,32 @@ img{display:block;max-width:100%;}
     var extOk  = /\.(jpe?g|png|gif|webp|bmp|heic|heif|avif)$/i.test(f.name || '');
     if(!typeOk && !extOk){ setStatus("That doesn't look like an image — please choose a JPG or PNG.", true); return; }
 
-    setStatus('Loading “' + (f.name || 'photo') + '”…', false);
-    var url = URL.createObjectURL(f);
+    if(isHeic(f)){
+      convertHeic(f)
+        .then(function(blob){ loadBlob(blob, f.name); })
+        .catch(function(){ setStatus("Couldn't convert that iPhone (HEIC) photo. Try a JPG/PNG, or upload a screenshot of it instead.", true); });
+      return;
+    }
+    loadBlob(f, f.name);
+  }
+
+  function loadBlob(blob, name){
+    setStatus('Loading “' + (name || 'photo') + '”…', false);
+    var url = URL.createObjectURL(blob);
     var im = new Image();
     im.onload = function(){
       img = im; zoom = 1; offX = 0; offY = 0;
       document.getElementById('zoom').value = 100;
       zoomField.style.display = '';
       downloadBtn.disabled = false;
-      setStatus(f.name || 'Photo added', false);
+      setStatus(name || 'Photo added', false);
       canvasHint.classList.remove('hide');
       URL.revokeObjectURL(url);
       render();
     };
     im.onerror = function(){
       URL.revokeObjectURL(url);
-      setStatus("Couldn't open that photo. If it's an iPhone HEIC image, upload a JPG/PNG — or take a screenshot of the photo and upload that.", true);
+      setStatus("Couldn't open that photo. Try a JPG or PNG, or upload a screenshot of it instead.", true);
     };
     im.src = url;
   }
