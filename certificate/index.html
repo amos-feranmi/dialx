@@ -327,7 +327,7 @@ footer {
 
     /* background */
     ctx.clearRect(0, 0, CW, CH);
-    ctx.fillStyle = '#010B2E';
+    ctx.fillStyle = '#0d2060';
     ctx.fillRect(0, 0, CW, CH);
 
     /* big X watermark */
@@ -433,16 +433,16 @@ footer {
 
     /* ── Signature (left) ── */
     if (sigImg.complete && sigImg.naturalWidth > 0) {
-      var sigH = 62;
+      var sigH = 96;
       var sigW = (sigImg.naturalWidth / sigImg.naturalHeight) * sigH;
       ctx.save();
       ctx.filter = 'invert(1)';
-      ctx.globalAlpha = 0.88;
-      ctx.drawImage(sigImg, 330 - sigW / 2, 614, sigW, sigH);
+      ctx.globalAlpha = 1;
+      ctx.drawImage(sigImg, 330 - sigW / 2, 598, sigW, sigH);
       ctx.restore();
     } else {
-      ctx.font = 'italic 400 26px "DM Serif Display"';
-      ctx.fillStyle = 'rgba(255,255,255,.78)';
+      ctx.font = 'italic 400 32px "DM Serif Display"';
+      ctx.fillStyle = 'rgba(255,255,255,.92)';
       ctx.textAlign = 'center';
       ctx.fillText('Amos Feranmi', 330, 668);
     }
