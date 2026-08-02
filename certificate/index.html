@@ -289,6 +289,11 @@ footer {
   var loadEl    = document.getElementById('preview-loading');
   var hintEl    = document.getElementById('hint');
 
+  /* preload signature */
+  var sigImg = new Image();
+  sigImg.src = '../assets/Amos_Signature_transparent.png';
+  sigImg.onload = function () { draw(); };
+
   /* ── helpers ── */
   function spaced(text, cx, y, tracking) {
     var prev = ctx.textAlign;
@@ -426,10 +431,20 @@ footer {
     ctx.beginPath(); ctx.moveTo(CW-590+20, 590); ctx.lineTo(CW-170, 590); ctx.stroke();
 
     /* ── Signature (left) ── */
-    ctx.font = 'italic 400 26px "DM Serif Display"';
-    ctx.fillStyle = 'rgba(255,255,255,.78)';
-    ctx.textAlign = 'center';
-    ctx.fillText('Amos Feranmi', 330, 674);
+    if (sigImg.complete && sigImg.naturalWidth > 0) {
+      var sigH = 62;
+      var sigW = (sigImg.naturalWidth / sigImg.naturalHeight) * sigH;
+      ctx.save();
+      ctx.filter = 'invert(1)';
+      ctx.globalAlpha = 0.88;
+      ctx.drawImage(sigImg, 330 - sigW / 2, 614, sigW, sigH);
+      ctx.restore();
+    } else {
+      ctx.font = 'italic 400 26px "DM Serif Display"';
+      ctx.fillStyle = 'rgba(255,255,255,.78)';
+      ctx.textAlign = 'center';
+      ctx.fillText('Amos Feranmi', 330, 668);
+    }
 
     ctx.strokeStyle = 'rgba(255,255,255,.14)';
     ctx.lineWidth = 1;
@@ -437,7 +452,11 @@ footer {
 
     ctx.font = '600 10px Montserrat';
     ctx.fillStyle = 'rgba(255,255,255,.28)';
-    spaced('FOUNDER, DIALX AFRICA', 330, 706, 2);
+    spaced('AMOS FERANMI', 330, 700, 2);
+
+    ctx.font = '500 10px Montserrat';
+    ctx.fillStyle = 'rgba(255,255,255,.2)';
+    spaced('FOUNDER, DIALX AFRICA', 330, 716, 1.5);
 
     /* ── Brand (right) ── */
     /* small vertical rule dividing left/right */
