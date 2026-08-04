@@ -471,13 +471,13 @@ footer {
 
     /* ── BACKGROUND ── */
     ctx.clearRect(0, 0, CW, CH);
-    ctx.fillStyle = '#0d2060';
+    ctx.fillStyle = '#000B24';
     ctx.fillRect(0, 0, CW, CH);
 
     /* warm radial glow — top-centre */
     var grad = ctx.createRadialGradient(CW / 2, -80, 0, CW / 2, -80, CH);
-    grad.addColorStop(0,   'rgba(254,109,19,.065)');
-    grad.addColorStop(0.5, 'rgba(254,109,19,.018)');
+    grad.addColorStop(0,   'rgba(254,109,19,.10)');
+    grad.addColorStop(0.5, 'rgba(254,109,19,.03)');
     grad.addColorStop(1,   'rgba(0,0,0,0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, CW, CH);
@@ -502,13 +502,13 @@ footer {
     ctx.fillRect(0, 0, CW, 3);
     ctx.fillRect(0, CH - 3, CW, 3);
 
-    ctx.strokeStyle = 'rgba(255,255,255,.06)';
+    ctx.strokeStyle = 'rgba(255,255,255,.1)';
     ctx.lineWidth = 1;
     ctx.strokeRect(44, 44, CW - 88, CH - 88);
 
     /* corner L marks */
     var cL = 20;
-    ctx.strokeStyle = 'rgba(254,109,19,.45)'; ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(254,109,19,.65)'; ctx.lineWidth = 1.5;
     [[44,44,1,1],[CW-44,44,-1,1],[44,CH-44,1,-1],[CW-44,CH-44,-1,-1]].forEach(function (c) {
       ctx.beginPath();
       ctx.moveTo(c[0] + c[2]*cL, c[1]); ctx.lineTo(c[0], c[1]); ctx.lineTo(c[0], c[1]+c[3]*cL);
@@ -531,14 +531,14 @@ footer {
     spaced('CERTIFICATE OF APPRECIATION', CW / 2, 158, 3.8);
 
     /* header rule */
-    ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(180, 174); ctx.lineTo(CW - 180, 174); ctx.stroke();
 
     /* ── CONTENT ── */
 
     /* "This certificate is proudly presented to" */
     ctx.font = 'italic 400 18px "DM Serif Display"';
-    ctx.fillStyle = 'rgba(255,255,255,.38)';
+    ctx.fillStyle = 'rgba(255,255,255,.62)';
     ctx.textAlign = 'center';
     ctx.fillText('This certificate is proudly presented to', CW / 2, 234);
 
@@ -562,7 +562,7 @@ footer {
       ? 'served as a valued Team Member at'
       : 'volunteered and contributed at';
     ctx.font = '500 14px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.4)';
+    ctx.fillStyle = 'rgba(255,255,255,.65)';
     ctx.textAlign = 'center';
     ctx.fillText(roleVerb, CW / 2, 398);
 
@@ -573,20 +573,20 @@ footer {
 
     /* edition / date / location */
     ctx.font = '500 12px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.2)';
+    ctx.fillStyle = 'rgba(255,255,255,.42)';
     spaced('EDITION 01  ·  JULY 25, 2026  ·  REDEMPTION CITY, NIGERIA', CW / 2, 478, 0.7);
 
     /* ornamental divider */
-    ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(180, 508); ctx.lineTo(CW - 180, 508); ctx.stroke();
-    ctx.fillStyle = 'rgba(254,109,19,.32)';
+    ctx.fillStyle = 'rgba(254,109,19,.55)';
     ctx.beginPath(); ctx.arc(CW / 2, 508, 2, 0, Math.PI * 2); ctx.fill();
 
     /* ── FOOTER ── */
     var FY = 530;
 
     /* vertical column dividers */
-    ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(440, FY + 14); ctx.lineTo(440, 808); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(760, FY + 14); ctx.lineTo(760, 808); ctx.stroke();
 
@@ -594,7 +594,7 @@ footer {
     var LC = 240;
 
     ctx.font = '600 8px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.24)';
+    ctx.fillStyle = 'rgba(255,255,255,.5)';
     spaced('ISSUED BY', LC, 564, 2.5);
 
     ctx.font = '800 15px Montserrat';
@@ -602,22 +602,22 @@ footer {
     ctx.textAlign = 'center';
     ctx.fillText('DIALX AFRICA', LC, 590);
 
-    ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(80, 608); ctx.lineTo(400, 608); ctx.stroke();
 
     ctx.font = '500 10px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.28)';
+    ctx.fillStyle = 'rgba(255,255,255,.5)';
     ctx.fillText('Official Digital Certificate', LC, 628);
 
-    ctx.strokeStyle = 'rgba(255,255,255,.04)';
+    ctx.strokeStyle = 'rgba(255,255,255,.07)';
     ctx.beginPath(); ctx.moveTo(80, 644); ctx.lineTo(400, 644); ctx.stroke();
 
     ctx.font = '500 10px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.2)';
+    ctx.fillStyle = 'rgba(255,255,255,.38)';
     ctx.fillText('dialxafrica.com', LC, 662);
-    ctx.fillStyle = 'rgba(255,255,255,.14)';
+    ctx.fillStyle = 'rgba(255,255,255,.28)';
     ctx.fillText('Edition 01 · July 2026', LC, 678);
-    ctx.fillStyle = 'rgba(255,255,255,.11)';
+    ctx.fillStyle = 'rgba(255,255,255,.22)';
     ctx.fillText('Redemption City, Nigeria', LC, 694);
 
     /* ── CENTRE SEAL ── */
@@ -627,38 +627,30 @@ footer {
     var RC = 960;
 
     ctx.font = '600 8px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.24)';
+    ctx.fillStyle = 'rgba(255,255,255,.5)';
     spaced('CERTIFICATE NO.', RC, 564, 2.5);
 
     /* cert ID */
     ctx.font = '700 13px Montserrat';
-    ctx.fillStyle = certIdVal ? 'rgba(255,255,255,.82)' : 'rgba(255,255,255,.14)';
+    ctx.fillStyle = certIdVal ? '#ffffff' : 'rgba(255,255,255,.22)';
     ctx.textAlign = 'center';
     spaced(certIdVal || 'DX · 2026 · ————', RC, 590, 2);
 
-    ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(800, 608); ctx.lineTo(1120, 608); ctx.stroke();
 
     ctx.font = '600 8px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.24)';
+    ctx.fillStyle = 'rgba(255,255,255,.5)';
     spaced('ISSUED', RC, 628, 2.5);
 
     ctx.font = '600 11px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.5)';
+    ctx.fillStyle = 'rgba(255,255,255,.78)';
     ctx.textAlign = 'center';
-    ctx.fillText('25 July 2026', RC, 646);
-
-    ctx.font = '600 8px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.24)';
-    spaced('VERIFY AT', RC, 666, 2.5);
-
-    ctx.font = '500 10px Montserrat';
-    ctx.fillStyle = 'rgba(255,255,255,.3)';
-    ctx.fillText('dialxafrica.com/verify', RC, 680);
+    ctx.fillText('25 July 2026', RC, 648);
 
     /* verification matrix */
-    var matSize = 80;
-    drawMatrix(RC - matSize / 2, 694, matSize, certSeed);
+    var matSize = 88;
+    drawMatrix(RC - matSize / 2, 668, matSize, certSeed);
 
     /* ── BUTTON STATE ── */
     var ready = !!name;
