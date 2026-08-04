@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Strategy Session — DialX Grant</title>
+<meta name="description" content="An exclusive complimentary Growth Strategy Session for founders who applied for the DialX Grant. Apply now — limited spots available.">
+<link rel="canonical" href="https://www.dialxafrica.com/growthsession">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1330182245677923');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1330182245677923&ev=PageView&noscript=1"/></noscript>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W0D7D50CL4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W0D7D50CL4');</script>
+
+<!-- PostHog -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config reset opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_JCIESevxQCcCtHslxdSpUp5TWFmIzw1Xf0Qnw1JxRvL',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only'});
+</script>
+
+<style>
+:root {
+  --navy:      #010B2E;
+  --navy-mid:  #021157;
+  --orange:    #FE6D13;
+  --orange-hi: #ff8c42;
+  --white:     #ffffff;
+  --muted:     rgba(255,255,255,.48);
+  --line:      rgba(255,255,255,.07);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--navy); color: var(--white);
+  overflow-x: hidden; min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── BG ── */
+.bg-mesh {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 85% 5%, rgba(254,109,19,.13) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 65% at 10% 95%, rgba(2,17,87,.7) 0%, transparent 65%);
+}
+.bg-lines {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: repeating-linear-gradient(-48deg, transparent, transparent 90px, rgba(255,255,255,.022) 90px, rgba(255,255,255,.022) 91px);
+}
+
+/* ── NAV ── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  padding: 0 48px; height: 66px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(1,11,46,.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo { font-size: 20px; font-weight: 900; letter-spacing: -1px; }
+.nav-logo span { color: var(--orange); }
+.nav-back {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,.38);
+  transition: color .2s;
+}
+.nav-back:hover { color: var(--white); }
+@media(max-width:560px) { #nav { padding: 0 20px; } .nav-back { display: none; } }
+
+/* ── SHELL ── */
+.shell {
+  position: relative; z-index: 1;
+  max-width: 760px; margin: 0 auto;
+  padding: 140px 40px 100px;
+}
+@media(max-width:600px) { .shell { padding: 108px 20px 72px; } }
+
+/* ── HERO ── */
+.hero { margin-bottom: 72px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(254,109,19,.1); border: 1px solid rgba(254,109,19,.24);
+  border-radius: 100px; padding: 7px 18px; margin-bottom: 32px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--orange);
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--orange); display: inline-block;
+}
+.hero-h1 {
+  font-weight: 900; font-size: clamp(38px, 6vw, 68px);
+  letter-spacing: -2.5px; line-height: 1.0; margin-bottom: 24px;
+}
+.hero-h1 em {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic; font-weight: 400; color: var(--orange);
+}
+.hero-sub {
+  font-size: 17px; font-weight: 500; color: var(--muted);
+  line-height: 1.75; max-width: 560px; margin-bottom: 40px;
+}
+.hero-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px; background: var(--orange); color: var(--white);
+  font-size: 11.5px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; border-radius: 4px;
+  transition: background .2s, transform .18s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: var(--orange-hi); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(254,109,19,.32);
+}
+.btn-primary svg { flex-shrink: 0; }
+.hero-note {
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.28);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
+}
+
+/* ── PROSE BLOCK ── */
+.prose {
+  font-size: 15px; font-weight: 500; color: rgba(255,255,255,.65);
+  line-height: 1.8; margin-bottom: 24px;
+}
+.prose strong { color: var(--white); font-weight: 700; }
+
+/* ── DIVIDER ── */
+.divider {
+  border: none; border-top: 1px solid var(--line);
+  margin: 56px 0;
+}
+
+/* ── CHALLENGE BULLETS ── */
+.challenge-list {
+  list-style: none; display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--line); border-radius: 10px;
+  overflow: hidden; margin-bottom: 24px;
+}
+.challenge-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 24px; border-bottom: 1px solid var(--line);
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.75);
+  line-height: 1.55; transition: background .2s;
+}
+.challenge-item:last-child { border-bottom: none; }
+.challenge-item:hover { background: rgba(255,255,255,.03); }
+.challenge-item::before {
+  content: '→';
+  color: var(--orange); font-weight: 800; flex-shrink: 0; margin-top: 1px;
+}
+
+/* ── AMOS BIO ── */
+.bio-wrap {
+  display: grid; grid-template-columns: 200px 1fr; gap: 40px;
+  align-items: start; margin-bottom: 48px;
+}
+@media(max-width:620px) { .bio-wrap { grid-template-columns: 1fr; } }
+
+.bio-photo {
+  width: 200px; height: 240px; border-radius: 10px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px; overflow: hidden;
+  flex-shrink: 0;
+}
+.bio-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+.bio-photo-placeholder {
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,.2);
+  letter-spacing: 0.5px; text-align: center; padding: 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.bio-photo-placeholder svg { opacity: .2; }
+
+.bio-content { padding-top: 4px; }
+.bio-name {
+  font-size: 26px; font-weight: 900; letter-spacing: -1px;
+  line-height: 1.1; margin-bottom: 6px;
+}
+.bio-name span { color: var(--orange); }
+.bio-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,.35);
+  margin-bottom: 20px;
+}
+.bio-text {
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  line-height: 1.75; margin-bottom: 20px;
+}
+
+/* ── BRAND TAGS ── */
+.brands-wrap { margin-bottom: 20px; }
+.brands-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 12px;
+}
+.brands-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.brand-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 5px 12px;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 100px; color: rgba(255,255,255,.5);
+}
+
+/* ── SKILLS GRID ── */
+.skills-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.skill-tag {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 5px 12px;
+  background: rgba(254,109,19,.08); border: 1px solid rgba(254,109,19,.18);
+  border-radius: 100px; color: rgba(254,109,19,.85);
+}
+
+/* ── COVER LIST ── */
+.cover-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  margin-bottom: 24px;
+}
+@media(max-width:520px) { .cover-grid { grid-template-columns: 1fr; } }
+.cover-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 18px 22px; border-bottom: 1px solid var(--line);
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.75);
+  line-height: 1.45;
+}
+.cover-item:nth-child(odd) { border-right: 1px solid var(--line); }
+@media(max-width:520px) { .cover-item:nth-child(odd) { border-right: none; } }
+.cover-item:nth-last-child(-n+2) { border-bottom: none; }
+@media(max-width:520px) { .cover-item:last-child { border-bottom: none; } .cover-item:nth-last-child(2) { border-bottom: 1px solid var(--line); } }
+.cover-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(254,109,19,.15); border: 1px solid rgba(254,109,19,.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.cover-dot::after {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--orange);
+}
+
+/* ── FOR FOUNDERS ── */
+.for-list {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 24px;
+}
+.for-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.8);
+  line-height: 1.5;
+}
+.for-check {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: #4ade80; font-size: 12px; font-weight: 800;
+}
+
+/* ── OUTCOME CARD ── */
+.outcome-card {
+  background: linear-gradient(135deg, rgba(254,109,19,.09) 0%, rgba(254,109,19,.03) 100%);
+  border: 1px solid rgba(254,109,19,.22); border-radius: 12px;
+  padding: 36px 32px; margin-bottom: 24px;
+}
+.outcome-title {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 24px;
+}
+.outcome-list { display: flex; flex-direction: column; gap: 16px; }
+.outcome-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.8);
+  line-height: 1.5;
+}
+.outcome-num {
+  font-size: 11px; font-weight: 800; color: var(--orange);
+  width: 22px; flex-shrink: 0; padding-top: 2px;
+}
+
+/* ── FAQ ── */
+.faq { display: flex; flex-direction: column; gap: 0; margin-bottom: 24px; }
+.faq-item {
+  border-bottom: 1px solid var(--line); padding: 24px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-q {
+  font-size: 15px; font-weight: 800; letter-spacing: -0.3px;
+  margin-bottom: 10px; color: var(--white);
+}
+.faq-a {
+  font-size: 14px; font-weight: 500; color: var(--muted); line-height: 1.7;
+}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta {
+  text-align: center; padding: 56px 40px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--line);
+  border-radius: 14px; margin-bottom: 24px;
+}
+.bottom-cta-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
+}
+.bottom-cta-h2 {
+  font-weight: 900; font-size: clamp(28px, 4.5vw, 44px);
+  letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
+}
+.bottom-cta-h2 em {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic; font-weight: 400; color: var(--orange);
+}
+.bottom-cta-sub {
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  line-height: 1.7; max-width: 440px; margin: 0 auto 32px;
+}
+.bottom-cta-fine {
+  margin-top: 16px; font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,.22);
+}
+@media(max-width:520px) { .bottom-cta { padding: 40px 24px; } }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--line);
+  padding: 28px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 11px; color: rgba(255,255,255,.2); font-weight: 500; }
+.footer-link {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,.25);
+  transition: color .2s;
+}
+.footer-link:hover { color: rgba(255,255,255,.5); }
+@media(max-width:600px) { footer { padding: 24px 20px; flex-direction: column; text-align: center; } }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .07s; }
+.reveal-d2 { transition-delay: .14s; }
+.reveal-d3 { transition-delay: .21s; }
+.reveal-d4 { transition-delay: .28s; }
+</style>
+
+<!-- Calendly badge widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+window.addEventListener('load', function() {
+  if (typeof Calendly !== 'undefined') {
+    Calendly.initBadgeWidget({
+      url: 'https://calendly.com/amos-feranmi/growth-strategy-session',
+      text: 'Apply for the Growth Session',
+      color: '#FE6D13',
+      textColor: '#ffffff',
+      branding: true
+    });
+  }
+});
+</script>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-lines"></div>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">DIAL<span>X</span></a>
+  <a href="/" class="nav-back">← Back to DialX</a>
+</nav>
+
+<div class="shell">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-eyebrow reveal"><span class="dot"></span> Exclusive to DialX Grant Applicants</div>
+    <h1 class="hero-h1 reveal reveal-d1">
+      Build a Customer Acquisition<br>System That <em>Actually Works.</em>
+    </h1>
+    <p class="hero-sub reveal reveal-d2">
+      An exclusive Growth Strategy Session for founders who applied for the DialX Grant.
+      Limited spots. No pitch. No fluff — just strategy built around your business.
+    </p>
+    <div class="hero-cta reveal reveal-d3">
+      <a href="#apply" class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2L2 8l4 2 2 4 6-12z"/></svg>
+        Apply for a Session
+      </a>
+      <span class="hero-note">45 minutes · Complimentary · First-come, first-served</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── CONTEXT ── -->
+  <div class="reveal">
+    <div class="section-label">Why This Exists</div>
+    <p class="prose">
+      If you're reading this, chances are you applied for the DialX Grant. <strong>First — thank you.</strong>
+      It was a privilege reading about the businesses being built, the problems being solved,
+      and the ambition behind every application.
+    </p>
+    <p class="prose">
+      While we couldn't support every founder with funding, I wasn't ready for the conversation to end there.
+      After reviewing applications and speaking with founders, I noticed something.
+      <strong>The biggest challenge wasn't always funding — it was growth.</strong>
+    </p>
+  </div>
+
+  <!-- Challenge bullets -->
+  <ul class="challenge-list reveal">
+    <li class="challenge-item">How do we consistently acquire customers?</li>
+    <li class="challenge-item">Which marketing channels should we focus on?</li>
+    <li class="challenge-item">Why isn't our product growing faster?</li>
+    <li class="challenge-item">What's the right go-to-market strategy?</li>
+    <li class="challenge-item">Where should we invest our limited time and budget?</li>
+  </ul>
+
+  <p class="prose reveal">
+    These are the kinds of questions I've spent the last six years helping companies answer.
+    So I'd like to continue supporting a small number of founders through a
+    <strong>complimentary Growth Strategy Session</strong> — available exclusively to DialX Grant applicants.
+  </p>
+
+  <hr class="divider">
+
+  <!-- ── AMOS BIO ── -->
+  <div class="reveal">
+    <div class="section-label">Your Host</div>
+  </div>
+
+  <div class="bio-wrap reveal reveal-d1">
+    <div class="bio-photo" id="bio-photo-wrap">
+      <img src="../amos/amos-picture.JPG" alt="Amos Feranmi">
+    </div>
+
+    <div class="bio-content">
+      <div class="bio-name">Amos <span>Feranmi</span></div>
+      <div class="bio-title">Product Marketing & Growth Leader · Pioneer of DialX</div>
+      <p class="bio-text">
+        I'm a Product Marketing and Growth leader with over six years of experience helping startups
+        launch products, acquire users, and grow across the Creator Economy, FinTech, Crypto, EdTech,
+        SaaS, Media, Logistics, Community, and Technology sectors.
+      </p>
+      <p class="bio-text">
+        Today, I lead Product Marketing at Selar — and I created DialX because I believe founders
+        deserve more than motivation. They deserve practical support from people who've been in the
+        trenches of building and growing products.
+      </p>
+
+      <div class="brands-wrap">
+        <div class="brands-label">Companies I've worked with</div>
+        <div class="brands-grid">
+          <span class="brand-tag">Selar</span>
+          <span class="brand-tag">Paper</span>
+          <span class="brand-tag">Bitoshi</span>
+          <span class="brand-tag">Pave</span>
+          <span class="brand-tag">BuyPower</span>
+          <span class="brand-tag">Payable</span>
+          <span class="brand-tag">Loop</span>
+          <span class="brand-tag">Chub</span>
+          <span class="brand-tag">Imperial EdTech</span>
+          <span class="brand-tag">LoadConnect</span>
+          <span class="brand-tag">KEBLE</span>
+          <span class="brand-tag">Techeconomy</span>
+          <span class="brand-tag">TopGro</span>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <span class="skill-tag">Product Marketing</span>
+        <span class="skill-tag">Go-to-Market Strategy</span>
+        <span class="skill-tag">Customer Acquisition</span>
+        <span class="skill-tag">Performance Marketing</span>
+        <span class="skill-tag">Product Launches</span>
+        <span class="skill-tag">Lifecycle Marketing</span>
+        <span class="skill-tag">Partnerships</span>
+        <span class="skill-tag">Community Growth</span>
+        <span class="skill-tag">Growth Strategy</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── WHAT WE'LL COVER ── -->
+  <div class="reveal">
+    <div class="section-label">What We'll Cover</div>
+    <p class="prose">
+      This isn't a networking call. It isn't a sales call.
+      It's a <strong>focused working session centred on your business.</strong> Together we'll:
+    </p>
+  </div>
+
+  <div class="cover-grid reveal reveal-d1">
+    <div class="cover-item"><div class="cover-dot"></div>Review your business and growth goals</div>
+    <div class="cover-item"><div class="cover-dot"></div>Identify the biggest bottlenecks limiting growth</div>
+    <div class="cover-item"><div class="cover-dot"></div>Evaluate your current customer acquisition strategy</div>
+    <div class="cover-item"><div class="cover-dot"></div>Review your positioning and messaging</div>
+    <div class="cover-item"><div class="cover-dot"></div>Identify the channels most likely to drive growth</div>
+    <div class="cover-item"><div class="cover-dot"></div>Prioritise what deserves your attention over the next 90 days</div>
+  </div>
+
+  <p class="prose reveal">
+    You'll leave with <strong>practical, actionable recommendations</strong> that you can begin implementing immediately.
+  </p>
+
+  <hr class="divider">
+
+  <!-- ── WHO THIS IS FOR ── -->
+  <div class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <p class="prose">This session is designed for founders who:</p>
+  </div>
+
+  <div class="for-list reveal reveal-d1">
+    <div class="for-item"><div class="for-check">✓</div>Have launched, or are close to launching.</div>
+    <div class="for-item"><div class="for-check">✓</div>Are actively looking for more customers or users.</div>
+    <div class="for-item"><div class="for-check">✓</div>Want clarity on how to grow.</div>
+    <div class="for-item"><div class="for-check">✓</div>Are ready to execute.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── WHAT YOU'LL LEAVE WITH ── -->
+  <div class="reveal">
+    <div class="section-label">What You'll Leave With</div>
+  </div>
+
+  <div class="outcome-card reveal reveal-d1">
+    <div class="outcome-title">By the End of Our Session</div>
+    <div class="outcome-list">
+      <div class="outcome-item"><div class="outcome-num">01</div>A clearer understanding of what's holding your business back.</div>
+      <div class="outcome-item"><div class="outcome-num">02</div>Greater confidence in where to focus next.</div>
+      <div class="outcome-item"><div class="outcome-num">03</div>Practical growth opportunities tailored to your business.</div>
+      <div class="outcome-item"><div class="outcome-num">04</div>A framework for thinking about customer acquisition more strategically.</div>
+    </div>
+  </div>
+
+  <p class="prose reveal">
+    My goal is simple — to help you leave with <strong>more clarity than you had before we met.</strong>
+  </p>
+
+  <hr class="divider">
+
+  <!-- ── FAQ ── -->
+  <div class="reveal">
+    <div class="section-label">Frequently Asked Questions</div>
+  </div>
+
+  <div class="faq reveal reveal-d1">
+    <div class="faq-item">
+      <div class="faq-q">Is this really free?</div>
+      <div class="faq-a">Yes. This invitation is exclusively for founders who applied for the DialX Grant.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this a sales call?</div>
+      <div class="faq-a">No. This is a strategy session focused on your business and your growth challenges.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long is the session?</div>
+      <div class="faq-a">Approximately 45 minutes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How should I prepare?</div>
+      <div class="faq-a">Come ready to talk about your business, your customers, your current growth efforts, and the biggest challenges you're facing.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── BOTTOM CTA ── -->
+  <div class="bottom-cta reveal" id="apply">
+    <div class="bottom-cta-label">Limited Spots Available</div>
+    <h2 class="bottom-cta-h2">Ready to grow?<br>Let's <em>talk strategy.</em></h2>
+    <p class="bottom-cta-sub">
+      I can only work with a limited number of founders each month — sessions are offered on a first-come, first-served basis. Pick a time that works for you below.
+    </p>
+
+    <!-- Calendly inline widget -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/amos-feranmi/growth-strategy-session" style="min-width:320px;height:700px;border-radius:8px;overflow:hidden;margin:0 auto 24px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <p class="bottom-cta-fine">Exclusively for DialX Grant applicants · 45 minutes · Complimentary</p>
+  </div>
+
+</div><!-- /shell -->
+
+<footer>
+  <span class="footer-copy">© 2026 DialX Africa. All rights reserved.</span>
+  <a href="/" class="footer-link">← DialX Africa</a>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+document.getElementById('apply-btn').addEventListener('click', function () {
+  try { if (window.posthog) posthog.capture('growth_session_apply_click'); } catch(e) {}
+});
+
+try { if (window.posthog) posthog.capture('growth_session_view'); } catch(e) {}
+</script>
+</body>
+</html>
