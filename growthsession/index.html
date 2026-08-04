@@ -364,6 +364,23 @@ footer {
 .reveal-d3 { transition-delay: .21s; }
 .reveal-d4 { transition-delay: .28s; }
 </style>
+
+<!-- Calendly badge widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+window.addEventListener('load', function() {
+  if (typeof Calendly !== 'undefined') {
+    Calendly.initBadgeWidget({
+      url: 'https://calendly.com/amos-feranmi/growth-strategy-session',
+      text: 'Apply for the Growth Session',
+      color: '#FE6D13',
+      textColor: '#ffffff',
+      branding: true
+    });
+  }
+});
+</script>
 </head>
 <body>
 
@@ -580,12 +597,13 @@ footer {
     <div class="bottom-cta-label">Limited Spots Available</div>
     <h2 class="bottom-cta-h2">Ready to grow?<br>Let's <em>talk strategy.</em></h2>
     <p class="bottom-cta-sub">
-      I can only work with a limited number of founders each month — sessions are offered on a first-come, first-served basis.
+      I can only work with a limited number of founders each month — sessions are offered on a first-come, first-served basis. Pick a time that works for you below.
     </p>
-    <a href="https://calendly.com/amosferanmi" target="_blank" rel="noopener" class="btn-primary" id="apply-btn">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2L2 8l4 2 2 4 6-12z"/></svg>
-      Apply for a Growth Strategy Session
-    </a>
+
+    <!-- Calendly inline widget -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/amos-feranmi/growth-strategy-session" style="min-width:320px;height:700px;border-radius:8px;overflow:hidden;margin:0 auto 24px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
     <p class="bottom-cta-fine">Exclusively for DialX Grant applicants · 45 minutes · Complimentary</p>
   </div>
 
